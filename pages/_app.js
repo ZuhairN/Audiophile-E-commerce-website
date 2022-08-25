@@ -1,7 +1,12 @@
-import '../styles/globals.css'
+import Boilerplate from '../components/Boilerplate';
+import '../styles/style.scss';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <Boilerplate>
+      <Component {...pageProps} />
+    </Boilerplate>
+  )
 }
 
 export default MyApp

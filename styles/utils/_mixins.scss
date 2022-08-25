@@ -1,0 +1,14 @@
+@mixin flex($justify: center, $align: center, $gap: 1.6rem) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+@mixin breakpoint($size) {
+    @if $size==mobile {
+        @media(max-width:35em) {
+            @content;
+        }
+    }
+}
