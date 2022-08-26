@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Footer from "./Footer";
+import Header from "./Header";
 
 export default function Boilerplate(props) {
     return (
@@ -8,9 +9,7 @@ export default function Boilerplate(props) {
                 <title>Audiophile E-commerce</title>
                 <meta name="description" content="Frontend Mentor Project" />
             </Head>
-            <header>
-                <h1>header</h1>
-            </header>
+            <Header />
             {props.children}
             <Footer />
         </>
