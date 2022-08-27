@@ -1,0 +1,47 @@
+@use '../utils' as *;
+
+.Hero {
+    @include flex($gap: 3.2rem);
+    flex-direction: column;
+    position: relative;
+    background-color: $clr-vd-gray;
+    text-align: center;
+    padding: 10rem 1.6rem;
+    z-index: 1;
+    overflow: hidden;
+
+    &__bg {
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        @include breakpoint(mobile) {
+            top: -10rem;
+            width: min(100vw, 45rem);
+            background-image: url('../../public/images/home/mobile/image-hero.jpg');
+        }
+    }
+
+    .heading--1 {
+        max-width: 20ch;
+        margin-inline: auto;
+
+        span {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: $clr-l-txt;
+            letter-spacing: 1rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .para {
+        color: rgba($clr-l-txt, .7);
+        max-width: 40ch;
+        margin-inline: auto;
+    }
+}

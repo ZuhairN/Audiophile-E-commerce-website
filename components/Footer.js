@@ -20,7 +20,7 @@ export default function Footer() {
 
             <div className='Footer__content'>
                 <p className='para'>Audiophile is an all in one stop to fulfill your audio needs. We’re a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.</p>
-                <p className='para'>Copyright 2022. All Rights Reserved</p>
+                <p className='para--copyright'>Copyright 2022. All Rights Reserved</p>
                 <div className='Footer__media'>
                     <a href='https://www.facebook.com/' target='_blank' rel="noreferrer"><FaFacebookSquare /></a>
                     <a href='https://twitter.com/' target='_blank' rel="noreferrer"><FaTwitter /></a>
