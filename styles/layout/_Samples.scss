@@ -1,0 +1,35 @@
+@use '../utils' as *;
+
+.Samples {
+    @include flex($gap: 2.4rem);
+    flex-direction: column;
+    padding-inline: 2.4rem;
+    text-align: center;
+
+    &__speaker {
+        @include flex($gap: 2.4rem);
+        flex-direction: column;
+        background-color: $clr-orange;
+        background-image: url(../../public/images/home/desktop/pattern-circles.svg);
+        background-size: cover;
+        background-position: 50% -12.8rem;
+        background-repeat: no-repeat;
+        border-radius: .8rem;
+        padding: 6.4rem 1.6rem 5.6rem;
+
+        &__img {
+            position: relative;
+            width: 17rem;
+        }
+    }
+
+    .heading--1 {
+        max-width: 10ch;
+        line-height: 1;
+    }
+
+    .Btn {
+        background-color: $clr-black;
+        color: $clr-gray;
+    }
+}
