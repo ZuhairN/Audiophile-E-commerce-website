@@ -1,15 +1,42 @@
 @use '../utils' as *;
 
 .Btn {
-    background-color: $clr-orange;
-    color: $clr-white;
     font-size: 1.3rem;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: .8px;
     padding: 1.4rem 3.2rem;
     transition: all 250ms ease-out;
 
-    &:hover {
-        background: lighten($clr-orange, 15%);
+
+    &--orange {
+        @extend .Btn;
+        color: $clr-white;
+        background: $clr-orange;
+
+        &:hover {
+            background: lighten($clr-orange, 15%);
+        }
+    }
+
+    &--black {
+        @extend .Btn;
+        color: $clr-white;
+        background: $clr-black;
+
+        &:hover {
+            background: lighten($clr-black, 15%);
+        }
+    }
+
+    &--transparent {
+        @extend .Btn;
+        color: $clr-black;
+        background: transparent;
+        border: 2px solid $clr-black;
+
+        &:hover {
+            color: $clr-white;
+            background: $clr-black;
+        }
     }
 }

@@ -1,0 +1,25 @@
+@use '../utils' as *;
+
+.Gear {
+    padding: 2.4rem;
+    margin-bottom: 12rem;
+
+    &__img {
+        background-image: url(../../public/images/shared/mobile/image-best-gear.jpg);
+        background-size: cover;
+        border-radius: .8rem;
+        height: calc(80vw);
+    }
+
+    &__content {
+        @include flex($direct: column, $gap: 3.2rem);
+        text-align: center;
+        margin-top: 4rem;
+    }
+
+    .heading--2 {
+        span {
+            color: $clr-orange;
+        }
+    }
+}

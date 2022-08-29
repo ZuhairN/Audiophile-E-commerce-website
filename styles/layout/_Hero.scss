@@ -1,10 +1,9 @@
 @use '../utils' as *;
 
 .Hero {
-    @include flex($gap: 3.2rem);
-    flex-direction: column;
+    @include flex($direct: column, $gap: 3.2rem);
     position: relative;
-    background-color: $clr-vd-gray;
+    background-color: $clr-blacky;
     text-align: center;
     padding: 35vw 1.6rem;
     z-index: 1;

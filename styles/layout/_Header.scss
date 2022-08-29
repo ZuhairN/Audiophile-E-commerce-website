@@ -1,7 +1,7 @@
 @use '../utils' as *;
 
 .Header {
-    background-color: $clr-vd-gray;
+    background-color: $clr-blacky;
 
     &__container {
         @include flex($justify: space-between);
@@ -63,8 +63,7 @@
         display: none;
 
         @include breakpoint(mobile) {
-            @include flex($align: stretch, $gap: 6.4rem);
-            flex-direction: column;
+            @include flex($direct: column, $align: stretch, $gap: 6.4rem);
         }
     }
 
