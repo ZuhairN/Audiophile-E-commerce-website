@@ -8,7 +8,19 @@
 
 @mixin breakpoint($size) {
     @if $size==mobile {
-        @media(max-width:35em) {
+        @media(max-width:27.99em) {
+            @content;
+        }
+    }
+
+    @else if $size==tablet {
+        @media(min-width:28em) {
+            @content;
+        }
+    }
+
+    @else if $size==desktop {
+        @media(min-width:45em) {
             @content;
         }
     }

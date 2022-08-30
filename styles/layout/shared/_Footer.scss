@@ -1,0 +1,108 @@
+@use '../../utils' as *;
+
+.Footer {
+    @include flex($direct: column, $gap: 4.8rem);
+    position: relative;
+    background-color: $clr-blacky;
+    padding-block: 5.2rem 3.2rem;
+    padding-inline: 2.4rem;
+
+    a {
+        color: $clr-white;
+        transition: all 250ms ease-out;
+        letter-spacing: 2px;
+        font-size: 1.3rem;
+        font-weight: 700;
+
+        &:hover {
+            color: $clr-orange;
+        }
+    }
+
+    &__nav {
+        @include flex();
+        width: 100%;
+
+        @include breakpoint(mobile) {
+            gap: 4.8rem;
+            flex-direction: column;
+        }
+
+        @include breakpoint(tablet) {
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: start;
+
+            >:first-child {
+                margin-right: 10rem;
+            }
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10rem;
+            height: 4px;
+            background-color: $clr-orange;
+
+            @include breakpoint(tablet) {
+                left: 2.4rem;
+                transform: translate(0);
+            }
+        }
+    }
+
+    &__list {
+        @include flex();
+
+        @include breakpoint(mobile) {
+            flex-direction: column;
+        }
+
+        @include breakpoint(tablet) {
+            gap: min(4vw, 3.6rem);
+        }
+    }
+
+    &__content {
+        display: grid;
+        gap: 4.8rem;
+        text-align: center;
+
+        @include breakpoint(tablet) {
+            grid-template-areas:
+                'content content'
+                'copyright media';
+            grid-template-columns: 1fr max-content;
+            text-align: left;
+        }
+    }
+
+    .para {
+        @include breakpoint(tablet) {
+            grid-area: content;
+        }
+
+        &--copyright {
+            @include breakpoint(tablet) {
+                grid-area: copyright;
+            }
+        }
+    }
+
+    &__media {
+        @include flex($gap: 1.3rem);
+
+        @include breakpoint(tablet) {
+            grid-area: media;
+        }
+
+        a {
+            font-size: 2.8rem;
+        }
+    }
+}

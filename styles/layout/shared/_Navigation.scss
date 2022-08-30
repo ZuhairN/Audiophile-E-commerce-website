@@ -1,6 +1,6 @@
-@use '../utils' as *;
+@use '../../utils' as *;
 
 .Navigation {
     @include flex($direct: column, $align: stretch, $gap: 6.4rem);
-    padding: 9.2rem 2.4rem 0;
+    padding-inline: 2.4rem;
 }

@@ -1,4 +1,4 @@
-@use '../utils' as *;
+@use '../../utils' as *;
 
 .Hero {
     @include flex($direct: column, $gap: 3.2rem);
@@ -20,7 +20,7 @@
         @include breakpoint(mobile) {
             top: -10rem;
             width: 100vw;
-            background-image: url('../../public/images/home/mobile/image-hero.jpg');
+            background-image: url(../../../public/images/home/mobile/image-hero.jpg);
         }
     }
 
