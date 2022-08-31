@@ -3,4 +3,13 @@
 .Navigation {
     @include flex($direct: column, $align: stretch, $gap: 6.4rem);
     padding-inline: 2.4rem;
+
+    @include breakpoint(tablet) {
+        flex-direction: row;
+        gap: 1rem;
+
+        >* {
+            flex: 1
+        }
+    }
 }

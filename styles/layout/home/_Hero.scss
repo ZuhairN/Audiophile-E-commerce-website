@@ -1,26 +1,43 @@
 @use '../../utils' as *;
 
 .Hero {
-    @include flex($direct: column, $gap: 3.2rem);
     position: relative;
-    background-color: $clr-blacky;
-    text-align: center;
-    padding: 35vw 1.6rem;
-    z-index: 1;
-    overflow: hidden;
 
-    &__bg {
+    &__content {
+        @include flex($direct: column, $gap: 3.2rem);
         position: absolute;
-        bottom: 0;
-        z-index: -1;
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
 
-        @include breakpoint(mobile) {
-            top: -10rem;
-            width: 100vw;
-            background-image: url(../../../public/images/home/mobile/image-hero.jpg);
+    &__img {
+        &--mobile {
+            @extend %imgSet;
+            border-radius: 0;
+
+            @include breakpoint(mobile) {
+                display: flex;
+            }
+        }
+
+        &--tablet {
+            @extend %imgSet;
+            border-radius: 0;
+
+            @include breakpoint(tablet) {
+                display: flex;
+            }
+        }
+
+        &--desktop {
+            @extend %imgSet;
+            border-radius: 0;
+
+            @include breakpoint(desktop) {
+                display: flex;
+            }
         }
     }
 

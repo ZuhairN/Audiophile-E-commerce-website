@@ -8,20 +8,26 @@
 
 @mixin breakpoint($size) {
     @if $size==mobile {
-        @media(max-width:27.99em) {
+        @media(max-width:32.99em) {
             @content;
         }
     }
 
     @else if $size==tablet {
-        @media(min-width:28em) {
+        @media(min-width:33em) and (max-width:59.99em) {
             @content;
         }
     }
 
     @else if $size==desktop {
-        @media(min-width:45em) {
+        @media(min-width:60em) {
             @content;
         }
     }
+}
+
+%imgSet {
+    display: none;
+    overflow: hidden;
+    border-radius: .8rem;
 }

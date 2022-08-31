@@ -5,10 +5,29 @@
     padding: 2.4rem;
 
     &__img {
-        background-image: url(../../../public/images/shared/mobile/image-best-gear.jpg);
-        background-size: cover;
-        border-radius: .8rem;
-        height: calc(80vw);
+        &--mobile {
+            @extend %imgSet;
+
+            @include breakpoint(mobile) {
+                display: flex;
+            }
+        }
+
+        &--tablet {
+            @extend %imgSet;
+
+            @include breakpoint(tablet) {
+                display: flex;
+            }
+        }
+
+        &--desktop {
+            @extend %imgSet;
+
+            @include breakpoint(desktop) {
+                display: flex;
+            }
+        }
     }
 
     &__content {

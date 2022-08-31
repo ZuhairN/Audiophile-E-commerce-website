@@ -30,6 +30,10 @@
     line-height: 1.6;
     color: $clr-l-txt;
 
+    @include breakpoint(tablet) {
+        max-width: 65ch;
+    }
+
     &--dark {
         @extend .para;
         color: $clr-txt;
