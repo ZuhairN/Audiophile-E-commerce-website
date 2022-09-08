@@ -1,119 +1,122 @@
 @use '../../utils' as *;
 
 .Samples {
+    @extend %container;
     @include flex($direct: column, $align: stretch, $gap: 2.4rem);
-    padding-inline: 2.4rem;
     text-align: center;
+
+    @include breakpoint(tablet) {
+        gap: 3.2rem;
+    }
+
+    @include breakpoint(desktop) {
+        gap: 4rem;
+    }
 
     &__ZX9 {
         @include flex($direct: column, $gap: 2.4rem);
         background-color: $clr-orange;
         background-image: url(../../../public/images/home/desktop/pattern-circles.svg);
         background-size: 170%;
-        background-position: 50% -12.8rem;
+        background-position: 50% -32vw;
         background-repeat: no-repeat;
         border-radius: .8rem;
-        padding: 6.4rem 2.4rem 5.6rem;
+        padding: 18vw 2.4rem 5.6rem;
+        overflow: hidden;
+
+        @include breakpoint(tablet) {
+            gap: 3.2rem;
+            padding-top: 8vw;
+            background-size: 130%;
+            background-position: 50% -35vw;
+        }
+
+        @include breakpoint(desktop) {
+            flex-direction: row;
+            justify-content: space-evenly;
+            gap: 0;
+            padding: 8% 0;
+            background-size: 85%;
+            background-position: max(min(-13.8vw, -14rem), -14.6rem) max(-5vw, -5.7rem);
+        }
 
         &__img {
-            position: relative;
             width: 55%;
+            margin-bottom: 5%;
+
+            @include breakpoint(tablet) {
+                width: 30%;
+            }
+
+            @include breakpoint(desktop) {
+                align-self: flex-end;
+                position: relative;
+                margin-bottom: -9.5%;
+                width: 35%;
+            }
         }
 
-        .heading--1 {
-            max-width: 10ch;
-            line-height: 1.1;
-            letter-spacing: 1px;
-        }
+        &__content {
+            @include flex($direct: column, $gap: 2.4rem);
 
-        .para {
-            max-width: 30ch;
-            color: rgba($clr-l-txt, .7);
+            @include breakpoint(desktop) {
+                align-items: flex-start;
+                text-align: left;
+            }
         }
     }
 
     &__ZX7 {
         position: relative;
 
+        &__img {
+            display: block;
+            border-radius: .8rem;
+            overflow: hidden;
+
+            img {
+                width: 100vw;
+            }
+        }
+
         &__content {
             @include flex($direct: column, $align: flex-start, $gap: 3.2rem);
             position: absolute;
             top: 50%;
-            left: 2.4rem;
+            left: min(8vw, 9rem);
             transform: translateY(-50%);
-        }
-
-        &__img {
-            &--mobile {
-                @extend %imgSet;
-
-                @include breakpoint(mobile) {
-                    display: flex;
-                }
-            }
-
-            &--tablet {
-                @extend %imgSet;
-
-                @include breakpoint(tablet) {
-                    display: flex;
-                }
-            }
-
-            &--desktop {
-                @extend %imgSet;
-
-                @include breakpoint(desktop) {
-                    display: flex;
-                }
-            }
         }
     }
 
     &__YX1 {
         display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 2.4rem;
 
         @include breakpoint(mobile) {
+            grid-template-columns: 1fr;
             grid-template-rows: repeat(2, 1fr);
         }
 
         @include breakpoint(tablet) {
-            grid-template-columns: repeat(2, 1fr);
+            gap: .8rem;
         }
 
         &__img {
-            &--mobile {
-                @extend %imgSet;
-
-                @include breakpoint(mobile) {
-                    display: flex;
-                }
-            }
-
-            &--tablet {
-                @extend %imgSet;
-
-                @include breakpoint(tablet) {
-                    display: flex;
-                }
-            }
-
-            &--desktop {
-                @extend %imgSet;
-
-                @include breakpoint(desktop) {
-                    display: flex;
-                }
-            }
+            border-radius: .8rem;
+            overflow: hidden;
         }
 
         &__content {
             @include flex($direct: column, $align: flex-start, $gap: 3.2rem);
-            padding-inline: 2.4rem;
+            padding-inline: min(8vw, 9rem);
             border-radius: .8rem;
             background-color: $clr-l-gray;
             text-align: left;
+
+            @include breakpoint(tablet) {
+                padding-inline: 3.2rem 1.6rem;
+            }
         }
     }
 }

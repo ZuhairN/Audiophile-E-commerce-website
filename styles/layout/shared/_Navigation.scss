@@ -1,15 +1,42 @@
 @use '../../utils' as *;
 
 .Navigation {
-    @include flex($direct: column, $align: stretch, $gap: 6.4rem);
-    padding-inline: 2.4rem;
+    @extend %container;
+    @include flex($direct: row, $align: stretch, $gap: .8rem);
 
-    @include breakpoint(tablet) {
-        flex-direction: row;
-        gap: 1rem;
+    @include breakpoint(mobile) {
+        flex-direction: column;
+        gap: 6.4rem;
+    }
 
-        >* {
-            flex: 1
+    @include breakpoint(desktop) {
+        gap: 2.4rem
+    }
+
+    &__card {
+        @include flex($direct: column);
+        flex: 1;
+        position: relative;
+        color: $clr-blacky;
+        background-color: $clr-l-gray;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        padding-block: 8.8rem 2.2rem;
+        border-radius: .8rem;
+
+
+        a {
+            @include flex($gap: 1.2rem);
+            color: $clr-txt;
         }
+    }
+
+    &__img {
+        width: 13.8rem;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -35%);
     }
 }

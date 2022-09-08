@@ -1,3 +1,5 @@
+@use '../utils' as *;
+
 html {
     font-size: 62.5%;
 }
@@ -9,4 +11,28 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+main {
+    @include flex($direct: column, $align: stretch, $gap: 12rem);
+    margin-bottom: 12rem;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: $clr-white;
+    transition: all 250ms ease-out;
+
+    .Header &:hover,
+    .Footer &:hover,
+    .Navigation &:hover {
+        color: $clr-orange;
+    }
 }

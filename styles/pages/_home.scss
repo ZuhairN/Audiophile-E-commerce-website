@@ -1,6 +1,0 @@
-@use '../utils' as *;
-
-.Home {
-    @include flex($direct: column, $align: stretch, $gap: 12rem);
-    margin-bottom: 12rem;
-}

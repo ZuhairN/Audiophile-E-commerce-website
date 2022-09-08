@@ -1,23 +1,44 @@
 @use '../../utils' as *;
+@use './Navigation' as *;
 
 .Header {
     background-color: $clr-blacky;
 
-    @include breakpoint(tablet) {
-        padding-inline: 2.4rem;
-    }
-
     &__container {
+        @extend %container;
         @include flex($justify: space-between);
         position: relative;
         z-index: 100;
-        border-bottom: 1px solid $clr-divider;
-        padding: 3.2rem 2.4rem;
+        padding-block: 3.2rem;
 
         @include breakpoint(tablet) {
             justify-content: flex-start;
-            padding-inline: 0;
             gap: 4rem;
+        }
+
+        @include breakpoint(desktop) {
+            align-items: center;
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            width: 100%;
+            background-color: $clr-divider;
+
+            @include breakpoint(tablet) {
+                width: calc(100% - 6.4rem);
+                left: 3.2rem;
+            }
+
+            @include breakpoint(desktop) {
+                width: calc(100% - 8rem);
+                left: 4rem;
+            }
         }
     }
 
@@ -29,6 +50,9 @@
         }
     }
 
+    &__logo {
+        display: flex;
+    }
 
     &__cart {
         @include flex();
@@ -40,36 +64,24 @@
     }
 
     &__nav {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        padding: 9.2rem 2.4rem 3.2rem;
-        background-color: $clr-white;
-        border-radius: 0 0 .8rem .8rem;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(110%);
-        transition: all 250ms ease-out;
+        @include breakpoint(mobTab) {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding-block: 9.2rem 3.2rem;
+            background-color: $clr-white;
+            border-radius: 0 0 .8rem .8rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(110%);
+            transition: all 250ms ease-out;
 
-        &.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(100%);
-        }
-
-        @include breakpoint(tablet) {
-            right: -2.4rem;
-            left: -2.4rem;
-        }
-
-        @include breakpoint(desktop) {
-            position: static;
-            padding: 0;
-            visibility: visible;
-            opacity: 1;
-            background-color: transparent;
-            transform: translate(0);
+            &.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(100%);
+            }
         }
     }
 
@@ -77,52 +89,48 @@
         display: none;
 
         @include breakpoint(desktop) {
-            @include flex();
-            color: $clr-white;
+            @include flex($gap: 3.6rem);
 
-            a.active {
-                color: $clr-orange;
+            >* {
+                display: flex;
+            }
+
+            a {
+                font-size: 1.4rem;
+
+                &.active {
+                    color: $clr-orange;
+                }
             }
         }
     }
 
-    &__tabletList {
-        @include flex($direct: column, $align: stretch, $gap: 6.4rem);
-
-        @include breakpoint(tablet) {
-            flex-direction: row;
-            gap: 1rem;
-
-            >* {
-                flex: 1;
-            }
-        }
-
+    .Navigation {
         @include breakpoint(desktop) {
             display: none;
         }
     }
 
     &__lightbox {
-        display: block;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: $clr-txt;
-        z-index: 50;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 250ms ease-out;
+        display: none;
 
-        &.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        @include breakpoint(mobTab) {
+            display: block;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: $clr-txt;
+            z-index: 50;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 250ms ease-out;
 
-        @include breakpoint(desktop) {
-            display: none;
+            &.active {
+                opacity: 1;
+                visibility: visible;
+            }
         }
     }
 }

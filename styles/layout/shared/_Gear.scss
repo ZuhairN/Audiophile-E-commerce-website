@@ -1,0 +1,40 @@
+@use '../../utils' as *;
+
+.Gear {
+    @extend %container;
+    @include flex($direct: column, $align: stretch, $gap: 4.8rem);
+
+    @include breakpoint(desktop) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        gap: 2.4rem;
+
+        >* {
+            flex: 1;
+        }
+    }
+
+    &__img {
+        border-radius: .8rem;
+        overflow: hidden;
+    }
+
+    &__content {
+        @include flex($direct: column, $gap: 3.2rem);
+        text-align: center;
+
+        @include breakpoint(tablet) {
+            width: min(90%, 57rem);
+            margin-inline: auto;
+        }
+
+        @include breakpoint(desktop) {
+            text-align: left;
+            align-items: start;
+
+            >* {
+                max-width: 44rem;
+            }
+        }
+    }
+}

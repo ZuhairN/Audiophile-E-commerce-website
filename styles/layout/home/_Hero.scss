@@ -2,62 +2,54 @@
 
 .Hero {
     position: relative;
+    background-color: $clr-blacky;
+
+    @include breakpoint(mobile) {
+        bottom: 25vw;
+        margin-bottom: -25vw;
+    }
+
+    @include breakpoint(tablet) {
+        bottom: 10vw;
+        margin-bottom: -10vw;
+    }
+
+    @include breakpoint(desktop) {
+        bottom: min(6vw, 8.6rem);
+        margin-bottom: max(-6vw, -8.6rem);
+    }
 
     &__content {
-        @include flex($direct: column, $gap: 3.2rem);
+        @include flex($direct: column, $gap: 2rem);
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        left: 0;
+        right: 0;
         text-align: center;
+        padding-inline: 2.4rem;
+
+        @include breakpoint(mobile) {
+            top: 56%;
+            transform: translateY(-50%);
+        }
+
+        @include breakpoint(tablet) {
+            top: max(53%, 30rem);
+            transform: translateY(-50%);
+        }
+
+        @include breakpoint(desktop) {
+            text-align: left;
+            align-items: flex-start;
+            top: min(calc(50% + 3vw), 40.8rem);
+            left: 0;
+            padding-inline: 4rem;
+            width: min(100%, 115rem);
+            margin-inline: auto;
+            transform: translateY(-50%);
+        }
     }
 
     &__img {
-        &--mobile {
-            @extend %imgSet;
-            border-radius: 0;
-
-            @include breakpoint(mobile) {
-                display: flex;
-            }
-        }
-
-        &--tablet {
-            @extend %imgSet;
-            border-radius: 0;
-
-            @include breakpoint(tablet) {
-                display: flex;
-            }
-        }
-
-        &--desktop {
-            @extend %imgSet;
-            border-radius: 0;
-
-            @include breakpoint(desktop) {
-                display: flex;
-            }
-        }
-    }
-
-    .heading--1 {
-        max-width: 20ch;
-        margin-inline: auto;
-
-        span {
-            display: block;
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: $clr-l-txt;
-            letter-spacing: 1rem;
-            margin-bottom: 2rem;
-        }
-    }
-
-    .para {
-        color: rgba($clr-l-txt, .7);
-        max-width: 40ch;
         margin-inline: auto;
     }
 }

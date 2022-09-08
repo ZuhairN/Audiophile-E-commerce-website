@@ -1,7 +1,7 @@
-import Gear from '../components/home/Gear';
 import Hero from '../components/home/Hero';
-import Navigation from '../components/home/Navigation';
+import Navigation from '../components/shared/Navigation';
 import Samples from '../components/home/Samples';
+import Gear from '../components/shared/Gear';
 
 export default function Home() {
   return (

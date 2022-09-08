@@ -1,12 +1,8 @@
 @use '../utils' as *;
 
 .Btn {
-    font-size: 1.3rem;
-    font-weight: 700;
     letter-spacing: .8px;
-    padding: 1.4rem 3.2rem;
-    transition: all 250ms ease-out;
-
+    padding: 1.2rem 2.8rem;
 
     &--orange {
         @extend .Btn;
@@ -24,7 +20,7 @@
         background: $clr-black;
 
         &:hover {
-            background: lighten($clr-black, 15%);
+            background: lighten($clr-black, 20%);
         }
     }
 

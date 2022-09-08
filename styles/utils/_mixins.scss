@@ -14,20 +14,34 @@
     }
 
     @else if $size==tablet {
-        @media(min-width:33em) and (max-width:59.99em) {
+        @media(min-width:33em) and (max-width:53.499em) {
+            @content;
+        }
+    }
+
+    @else if $size==mobTab {
+        @media(max-width:53.499em) {
             @content;
         }
     }
 
     @else if $size==desktop {
-        @media(min-width:60em) {
+        @media(min-width:53.5em) {
             @content;
         }
     }
 }
 
-%imgSet {
-    display: none;
-    overflow: hidden;
-    border-radius: .8rem;
+%container {
+    padding-inline: 2.4rem;
+
+    @include breakpoint(tablet) {
+        padding-inline: 3.2rem;
+    }
+
+    @include breakpoint(desktop) {
+        padding-inline: 4rem;
+        width: min(100%, 115rem);
+        margin-inline: auto;
+    }
 }

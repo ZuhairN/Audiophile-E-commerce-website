@@ -1,41 +1,35 @@
 @use '../../utils' as *;
 
 .Footer {
-    @include flex($direct: column, $gap: 4.8rem);
-    position: relative;
     background-color: $clr-blacky;
-    padding-block: 5.2rem 3.2rem;
-    padding-inline: 2.4rem;
 
-    a {
-        color: $clr-white;
-        transition: all 250ms ease-out;
-        letter-spacing: 2px;
-        font-size: 1.3rem;
-        font-weight: 700;
+    &__container {
+        @extend %container;
+        @include flex($direct: column, $gap: 3.2rem);
+        position: relative;
+        padding-block: 5.2rem 3.2rem;
 
-        &:hover {
-            color: $clr-orange;
+        @include breakpoint(mobile) {
+            gap: 4.8rem;
+        }
+
+        @include breakpoint(desktop) {
+            padding-block: 8rem 4rem;
         }
     }
 
     &__nav {
-        @include flex();
+        @include flex($direct: column, $gap: 4.8rem);
         width: 100%;
 
-        @include breakpoint(mobile) {
-            gap: 4.8rem;
-            flex-direction: column;
+        @include breakpoint(tablet) {
+            align-items: start;
+            gap: 2.4rem;
         }
 
-        @include breakpoint(tablet) {
-            flex-wrap: wrap;
+        @include breakpoint(desktop) {
+            flex-direction: row;
             justify-content: space-between;
-            align-items: start;
-
-            >:first-child {
-                margin-right: 10rem;
-            }
         }
 
         &::before {
@@ -43,66 +37,86 @@
             display: block;
             position: absolute;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 3.2rem;
             width: 10rem;
             height: 4px;
             background-color: $clr-orange;
 
-            @include breakpoint(tablet) {
-                left: 2.4rem;
-                transform: translate(0);
+            @include breakpoint(mobile) {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            @include breakpoint(desktop) {
+                left: 4rem;
             }
         }
     }
 
     &__list {
-        @include flex();
+        @include flex($gap: 3.2rem);
 
         @include breakpoint(mobile) {
             flex-direction: column;
-        }
-
-        @include breakpoint(tablet) {
-            gap: min(4vw, 3.6rem);
+            gap: 1.6rem;
         }
     }
 
     &__content {
         display: grid;
-        gap: 4.8rem;
         width: 100%;
-        text-align: center;
+        row-gap: 6.4rem;
+        grid-template-columns: max-content 1fr;
+
+        @include breakpoint(mobile) {
+            grid-template-areas: 'content''copyright''media';
+            grid-template-columns: 1fr;
+            row-gap: 4.8rem;
+            text-align: center;
+        }
 
         @include breakpoint(tablet) {
             grid-template-areas:
                 'content content'
                 'copyright media';
-            grid-template-columns: 1fr max-content;
-            text-align: left;
+        }
+
+        @include breakpoint(desktop) {
+            grid-template-areas:
+                'content media'
+                'copyright .';
         }
     }
 
     .para {
-        @include breakpoint(tablet) {
-            grid-area: content;
+        grid-area: content;
+        max-width: 80ch;
+
+        @include breakpoint(mobile) {
+            max-width: 35ch;
+            justify-self: center;
+        }
+
+        @include breakpoint(desktop) {
+            max-width: 57.5ch;
         }
 
         &--copyright {
-            @include breakpoint(tablet) {
-                grid-area: copyright;
-            }
+            grid-area: copyright;
         }
     }
 
     &__media {
         @include flex($gap: 1.3rem);
+        grid-area: media;
+        place-self: end;
 
-        @include breakpoint(tablet) {
-            grid-area: media;
+        @include breakpoint(mobile) {
+            place-self: center;
         }
 
         a {
+            display: flex;
             font-size: 2.8rem;
         }
     }
