@@ -6,7 +6,6 @@ export default function Boilerplate(props) {
     return (
         <>
             <Head>
-                <title>Audiophile E-commerce</title>
                 <meta name="description" content="Frontend Mentor Project" />
             </Head>
             <Header />
