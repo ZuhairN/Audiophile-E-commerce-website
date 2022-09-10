@@ -1,0 +1,11 @@
+@use '../../utils' as *;
+
+.Title {
+    background-color: $clr-blacky;
+    text-align: center;
+    padding-block: 9.2rem;
+
+    @include breakpoint(mobile) {
+        padding-block: 3.2rem;
+    }
+}

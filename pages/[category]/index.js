@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Title from "../../components/categories/Title";
 import Products from '../../components/categories/Products';
-import Navigation from "../../components/shared/Navigation";
+import MobNavList from "../../components/shared/MobNavList";
 import Gear from "../../components/shared/Gear";
 
 export default function Index({ category }) {
@@ -14,7 +14,7 @@ export default function Index({ category }) {
       <main>
         <Title title={category} />
         <Products category={category} />
-        <Navigation />
+        <MobNavList />
         <Gear />
       </main>
     </>

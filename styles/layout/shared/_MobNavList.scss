@@ -1,6 +1,6 @@
 @use '../../utils' as *;
 
-.Navigation {
+.MobNavList {
     @extend %container;
     @include flex($direct: row, $align: stretch, $gap: .8rem);
 

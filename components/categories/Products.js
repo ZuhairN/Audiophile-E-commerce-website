@@ -10,10 +10,10 @@ export default function Products({ category }) {
                     <picture>
                         <source media='(min-width: 53.5em)' srcSet={product.img.desktop} />
                         <source media='(min-width: 33em)' srcSet={product.img.tablet} />
-                        <img src={product.img.mobile} alt={product.name} />
+                        <img className='Products__img' src={product.img.mobile} alt={product.name} />
                     </picture>
-                    <div>
-                        <h2 className='heading--2'>{product.isNew ? <span>NEW PRODUCT</span> : null}{product.name}</h2>
+                    <div className='Products__content'>
+                        <h2 className='heading--2'>{product.isNew ? <span className='heading--span'>NEW PRODUCT</span> : null} {product.name}</h2>
                         <p className='para--dark'>{product.description}</p>
                         <Btn cls='orange' href={category} />
                     </div>

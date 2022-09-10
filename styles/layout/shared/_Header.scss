@@ -1,5 +1,4 @@
 @use '../../utils' as *;
-@use './Navigation' as *;
 
 .Header {
     background-color: $clr-blacky;
@@ -85,7 +84,7 @@
         }
     }
 
-    &__desktopList {
+    .NavList {
         display: none;
 
         @include breakpoint(desktop) {
@@ -97,15 +96,11 @@
 
             a {
                 font-size: 1.4rem;
-
-                &.active {
-                    color: $clr-orange;
-                }
             }
         }
     }
 
-    .Navigation {
+    .MobNavList {
         @include breakpoint(desktop) {
             display: none;
         }

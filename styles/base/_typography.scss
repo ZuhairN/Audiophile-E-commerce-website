@@ -28,19 +28,19 @@
             @include breakpoint(desktop) {
                 font-size: min(.1rem + 5vw, 5.6rem);
             }
-
-            span {
-                display: block;
-                font-size: 1.4rem;
-                color: rgba($clr-l-txt, .3);
-                letter-spacing: 1rem;
-                margin-bottom: 2rem;
-            }
         }
 
         .Samples & {
             max-width: 7ch;
             letter-spacing: 1px;
+        }
+
+        .Title & {
+            font-size: 4rem;
+
+            @include breakpoint(mobile) {
+                font-size: 2.8rem;
+            }
         }
     }
 
@@ -61,6 +61,27 @@
             span {
                 color: $clr-orange;
             }
+        }
+
+        .Products & {
+            max-width: 15ch;
+        }
+    }
+
+    &--span {
+        display: block;
+        font-size: 1.4rem;
+        letter-spacing: 1rem;
+        margin-bottom: 2rem;
+        margin-right: -1rem;
+
+        .Hero & {
+            color: rgba($clr-l-txt, .3);
+        }
+
+        .Products & {
+            color: $clr-orange;
+            font-weight: 400;
         }
     }
 }
@@ -100,5 +121,9 @@
             max-width: 30ch;
             margin-bottom: 0;
         }
+    }
+
+    .Products & {
+        max-width: 43ch;
     }
 }

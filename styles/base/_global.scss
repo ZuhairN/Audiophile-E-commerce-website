@@ -35,4 +35,8 @@ a {
     .Navigation &:hover {
         color: $clr-orange;
     }
+
+    &.active {
+        color: $clr-orange;
+    }
 }

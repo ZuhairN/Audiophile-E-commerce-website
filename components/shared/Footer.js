@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaFacebookSquare, FaInstagram, FaTwitter } from 'react-icons/fa';
 import logo from '../../public/images/shared/desktop/logo.svg';
+import NavList from './NavList';
 
 export default function Footer() {
     return (
@@ -11,12 +12,7 @@ export default function Footer() {
                     <Link href='/' className='Footer__logo'>
                         <a><Image src={logo} alt='website-logo' /></a>
                     </Link>
-                    <ul className='Footer__list'>
-                        <li><Link href='/'><a>HOME</a></Link></li>
-                        <li><Link href='/headphones'><a>HEADPHONES</a></Link></li>
-                        <li><Link href='/speakers'><a>SPEAKERS</a></Link></li>
-                        <li><Link href='/earphones'><a>EARPHONES</a></Link></li>
-                    </ul>
+                    <NavList />
                 </nav>
 
                 <div className='Footer__content'>
