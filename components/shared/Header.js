@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,11 +8,17 @@ import closeMenu from '../../public/images/shared/tablet/icon-close-menu.svg';
 import cart from '../../public/images/shared/desktop/icon-cart.svg';
 import MobNavList from "./MobNavList";
 import NavList from "./NavList";
+import { useRouter } from "next/router";
 
 
 export default function Header() {
     const [isExpanded, setIsExpanded] = useState(false);
+    const { query } = useRouter();
     const toggleMenu = () => setIsExpanded(st => !st);
+
+    useEffect(() => {
+        setIsExpanded(false);
+    }, [query])
 
     return (
         <header className='Header'>

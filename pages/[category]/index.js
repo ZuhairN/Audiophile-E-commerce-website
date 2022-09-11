@@ -1,10 +1,10 @@
 import Head from "next/head";
 import Title from "../../components/categories/Title";
-import Products from '../../components/categories/Products';
+import Section from '../../components/categories/Section';
 import MobNavList from "../../components/shared/MobNavList";
 import Gear from "../../components/shared/Gear";
 
-export default function Index({ category }) {
+export default function Template({ category }) {
 
   return (
     <>
@@ -13,7 +13,7 @@ export default function Index({ category }) {
       </Head>
       <main>
         <Title title={category} />
-        <Products category={category} />
+        <Section category={category} />
         <MobNavList />
         <Gear />
       </main>

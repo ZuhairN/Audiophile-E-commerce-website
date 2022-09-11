@@ -1,6 +1,6 @@
 @use '../utils' as *;
 
-#__next {
+html {
     font-family: 'Manrope', sans-serif;
 }
 
@@ -63,9 +63,14 @@
             }
         }
 
-        .Products & {
+        .Product & {
             max-width: 15ch;
         }
+    }
+
+    &--3 {
+        @extend .heading;
+        font-size: 1.8rem;
     }
 
     &--span {
@@ -79,7 +84,7 @@
             color: rgba($clr-l-txt, .3);
         }
 
-        .Products & {
+        .Product & {
             color: $clr-orange;
             font-weight: 400;
         }
@@ -121,9 +126,5 @@
             max-width: 30ch;
             margin-bottom: 0;
         }
-    }
-
-    .Products & {
-        max-width: 43ch;
     }
 }

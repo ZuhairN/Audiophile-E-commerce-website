@@ -6,11 +6,11 @@
 
     @include breakpoint(mobile) {
         flex-direction: column;
-        gap: 6.4rem;
+        gap: max(7.5rem, 16vw);
     }
 
     @include breakpoint(desktop) {
-        gap: 2.4rem
+        gap: 2.4rem;
     }
 
     &__card {
@@ -22,8 +22,12 @@
         font-size: 1.5rem;
         font-weight: 700;
         letter-spacing: 1px;
-        padding-block: 8.8rem 2.2rem;
+        padding-block: max(9%, 6rem) 2.2rem;
         border-radius: .8rem;
+
+        @include breakpoint(mobile) {
+            padding-top: max(18%, 7rem);
+        }
 
 
         a {
@@ -33,10 +37,14 @@
     }
 
     &__img {
-        width: 13.8rem;
+        width: max(50%, 12rem);
         position: absolute;
         top: 0;
         left: 50%;
         transform: translate(-50%, -35%);
+
+        @include breakpoint(mobile) {
+            width: max(35%, 14rem);
+        }
     }
 }

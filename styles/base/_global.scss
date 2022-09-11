@@ -4,13 +4,10 @@ html {
     font-size: 62.5%;
 }
 
-#__next {
+body {
     min-height: 100vh;
     font-size: 1.6rem;
     line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 main {
@@ -32,11 +29,17 @@ a {
 
     .Header &:hover,
     .Footer &:hover,
-    .Navigation &:hover {
+    .MobNavList &:hover {
         color: $clr-orange;
     }
 
     &.active {
         color: $clr-orange;
     }
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
 }

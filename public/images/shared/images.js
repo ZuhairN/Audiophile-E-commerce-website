@@ -8,7 +8,7 @@ const sharedImages = {
     Earphones: { src: Earphones, alt: 'earphones' },
     Headphones: { src: Headphones, alt: 'headphones' },
     Speakers: { src: Speakers, alt: 'speakers' },
-    Gear: { src: { mobile: './images/shared/mobile/image-best-gear.jpg', tablet: './images/shared/tablet/image-best-gear.jpg', desktop: './images/shared/desktop/image-best-gear.jpg' }, alt: 'Gear-Headphones' }
+    Gear: { src: { mobile: '/images/shared/mobile/image-best-gear.jpg', tablet: '/images/shared/tablet/image-best-gear.jpg', desktop: '/images/shared/desktop/image-best-gear.jpg' }, alt: 'Gear-Headphones' }
 }
 
 export default sharedImages;
