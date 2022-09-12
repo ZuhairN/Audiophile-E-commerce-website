@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 
-import logo from '../../public/images/shared/desktop/logo.svg';
-import openMenu from '../../public/images/shared/tablet/icon-hamburger.svg';
-import closeMenu from '../../public/images/shared/tablet/icon-close-menu.svg';
-import cart from '../../public/images/shared/desktop/icon-cart.svg';
+import logo from 'public/images/shared/desktop/logo.svg';
+import openMenu from 'public/images/shared/tablet/icon-hamburger.svg';
+import closeMenu from 'public/images/shared/tablet/icon-close-menu.svg';
+import cart from 'public/images/shared/desktop/icon-cart.svg';
 import MobNavList from "./MobNavList";
 import NavList from "./NavList";
-import { useRouter } from "next/router";
 
 
 export default function Header() {

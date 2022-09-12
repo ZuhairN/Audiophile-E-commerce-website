@@ -1,16 +1,18 @@
 import Head from "next/head";
-import ProductDetails from "../../components/products/ProductDetails";
-import Gear from "../../components/shared/Gear";
-import MobNavList from "../../components/shared/MobNavList";
+import ProductDetails from "components/products/ProductDetails";
+import Gear from "components/shared/Gear";
+import MobNavList from "components/shared/MobNavList";
+import path from 'path';
+import fs from 'fs';
 
-export default function Product({ category, productId }) {
+export default function Product({ productData }) {
     return (
         <>
             <Head>
-                <title>a</title>
+                <title>{productData.shortName}</title>
             </Head>
             <main>
-                <ProductDetails category={category} productId={productId} />
+                <ProductDetails {...productData} data={productData} />
                 <MobNavList />
                 <Gear />
             </main>
@@ -18,10 +20,16 @@ export default function Product({ category, productId }) {
     )
 }
 
-export const getStaticProps = async (context) => {
+export const getStaticProps = async context => {
     const { category, productId } = context.params;
+    const filePath = path.join(process.cwd(), 'data.json')
+    const res = fs.readFileSync(filePath, 'utf8');
+    const parsedData = JSON.parse(res).products;
+    const productData = parsedData.find(product => product.category === category && product.productId === productId);
     return {
-        props: { category, productId }
+        props: {
+            productData,
+        }
     }
 }
 
