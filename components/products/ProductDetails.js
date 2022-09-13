@@ -23,11 +23,11 @@ export default function ProductDetails({ data, shortName, features, includedItem
                     <h2 className='heading--2'>FEATURES</h2>
                     {features.map(feature => <p key={uuid()} className='para--dark'>{feature}</p>)}
                 </div>
-                <div className='ProductDetails__inBox' >
+                <div className='ProductDetails__inBox'>
                     <h2 className='heading--2'>IN THE BOX</h2>
-                    <ul>
+                    <ul className='ProductDetails__inBox__list'>
                         {includedItems.map(item => (
-                            <li key={uuid()}><span>{item.quantity}x</span>{item.item}</li>
+                            <li key={uuid()} className='para--dark'><span>{item.quantity}x</span>{item.item.replace(/^(.)|\s+(.)/g, c => c.toUpperCase())}</li>
                         ))}
                     </ul>
                 </div>
@@ -43,7 +43,7 @@ export default function ProductDetails({ data, shortName, features, includedItem
                     {others.map(product => (
                         <div key={uuid()}>
                             {responsiveImg(product.image, product.name)}
-                            <h3 className='heading--3'>{product.name}</h3>
+                            <h3 className='heading--3'>{product.name.toUpperCase()}</h3>
                             <Btn cls='orange' href={`/${product.productId}`} text='SEE PRODUCT' />
                         </div>
                     ))}

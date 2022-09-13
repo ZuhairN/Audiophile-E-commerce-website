@@ -2,7 +2,7 @@
 
 .MobNavList {
     @extend %container;
-    @include flex($direct: row, $align: stretch, $gap: .8rem);
+    @include flex($direct: row, $align: stretch, $gap: 1rem);
 
     @include breakpoint(mobile) {
         flex-direction: column;

@@ -9,16 +9,16 @@ export default function Product({ productId, category, categoryImage, name, desc
                 <img className='Product__img' src={categoryImage.mobile} alt={name} />
             </picture>
             <div className='Product__content'>
-                <h2 className='heading--2'>{isNew ? <span className='heading--span'>NEW PRODUCT</span> : null} {name}</h2>
+                <h2 className='heading--2'>{isNew ? <span className='heading--span'>NEW PRODUCT</span> : null} {name.toUpperCase()}</h2>
                 <p className='para--dark'>{description}</p>
 
                 {!alpha ? <Btn cls='orange' href={`${category}/${productId}`} text='SEE PRODUCT' /> :
-                    <> <h3 className='heading--3'>${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</h3>
+                    <> <h4 className='heading--4'>$ {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</h4>
                         <div className='Product__btns'>
                             <div className='Product__count'>
                                 <button type='button'>-</button>
                                 <span>1</span>
-                                <button typbe='button'>+</button>
+                                <button type='button'>+</button>
                             </div>
                             <Btn cls='orange' href={`/${category}`} text='ADD TO CART' />
                         </div></>

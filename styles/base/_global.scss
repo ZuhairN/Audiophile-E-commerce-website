@@ -18,6 +18,11 @@ main {
 img {
     display: block;
     max-width: 100%;
+    border-radius: .8rem;
+
+    .Header & {
+        border-radius: 0;
+    }
 }
 
 a {
@@ -39,7 +44,13 @@ a {
 }
 
 button {
+    font: inherit;
     border: none;
     cursor: pointer;
     background-color: transparent;
+    transition: all 250ms ease-out;
+
+    &:hover {
+        color: $clr-orange;
+    }
 }
