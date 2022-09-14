@@ -12,6 +12,12 @@
         &:hover {
             background: lighten($clr-orange, 15%);
         }
+
+        .ProductDetails & {
+            @include breakpoint(tablet) {
+                padding-inline: min(3.2rem, 4vw);
+            }
+        }
     }
 
     &--black {

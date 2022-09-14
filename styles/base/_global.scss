@@ -30,7 +30,7 @@ a {
     font-weight: 700;
     letter-spacing: 2px;
     color: $clr-white;
-    transition: all 250ms ease-out;
+    transition: all 250ms ease-in-out;
 
     .Header &:hover,
     .Footer &:hover,
@@ -48,7 +48,7 @@ button {
     border: none;
     cursor: pointer;
     background-color: transparent;
-    transition: all 250ms ease-out;
+    transition: all 250ms ease-in-out;
 
     &:hover {
         color: $clr-orange;

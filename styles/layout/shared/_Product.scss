@@ -10,17 +10,14 @@
         &:nth-of-type(2n+2) {
             flex-direction: row-reverse;
         }
+    }
 
-        >:first-child {
-            flex: 1;
-        }
-
-        >:last-child {
-            flex-basis: 41.5%;
-        }
+    &__img {
+        flex: 1;
     }
 
     &__content {
+        flex-basis: 41.5%;
         @include flex($direct: column, $gap: 2.4rem);
         text-align: center;
 
@@ -39,7 +36,6 @@
     &__btns {
         @include flex($justify: flex-start, $align: stretch);
         margin-top: 2rem;
-
     }
 
     &__count {
@@ -56,12 +52,32 @@
 
             &:hover {
                 color: $clr-orange;
-                transform: scale(1.4);
+                transform: scale(1.1);
             }
         }
     }
 
-    .heading--2 {
-        max-width: 14ch;
+    .ProductDetails & {
+        @include breakpoint(tablet) {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        &__img {
+            @include breakpoint(tablet) {
+                min-width: 23rem;
+                flex: 1 35%;
+            }
+        }
+
+        &__content {
+            align-items: flex-start;
+            text-align: left;
+            margin-right: auto;
+
+            @include breakpoint(tablet) {
+                flex: 1 60%;
+            }
+        }
     }
 }

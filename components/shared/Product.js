@@ -1,12 +1,12 @@
 import Btn from "./Btn";
 
-export default function Product({ productId, category, categoryImage, name, description, isNew, price, alpha }) {
+export default function Product({ productId, category, categoryImage, image, name, description, isNew, price, alpha }) {
     return (
         <div className='Product'>
-            <picture>
-                <source media='(min-width: 53.5em)' srcSet={categoryImage.desktop} />
-                <source media='(min-width: 33em)' srcSet={categoryImage.tablet} />
-                <img className='Product__img' src={categoryImage.mobile} alt={name} />
+            <picture className='Product__img'>
+                <source media='(min-width: 53.5em)' srcSet={!alpha ? categoryImage.desktop : image.desktop} />
+                <source media={!alpha ? '(min-width: 33em)' : '(min-width: 44.95em)'} srcSet={!alpha ? categoryImage.tablet : image.tablet} />
+                <img src={!alpha ? categoryImage.mobile : image.mobile} alt={name} />
             </picture>
             <div className='Product__content'>
                 <h2 className='heading--2'>{isNew ? <span className='heading--span'>NEW PRODUCT</span> : null} {name.toUpperCase()}</h2>
