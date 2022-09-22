@@ -39,10 +39,15 @@
     }
 
     &__count {
-        @include flex($gap: 1rem);
+        @include flex($gap: 0);
         background-color: $clr-l-gray;
         font-size: 1.4rem;
         font-weight: 700;
+
+        >span {
+            text-align: center;
+            min-width: 3rem;
+        }
 
         >*:not(:nth-child(2)) {
             font: inherit;
@@ -52,7 +57,7 @@
 
             &:hover {
                 color: $clr-orange;
-                transform: scale(1.1);
+                background-color: $clr-gray;
             }
         }
     }
@@ -65,8 +70,8 @@
 
         &__img {
             @include breakpoint(tablet) {
-                min-width: 23rem;
-                flex: 1 35%;
+                min-width: 20rem;
+                flex: 1 30%;
             }
         }
 

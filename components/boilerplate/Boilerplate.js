@@ -1,3 +1,4 @@
+import CartProvider from "contexts/cart.context";
 import Head from "next/head";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -8,9 +9,11 @@ export default function Boilerplate(props) {
             <Head>
                 <meta name="description" content="Frontend Mentor Project" />
             </Head>
-            <Header />
-            {props.children}
-            <Footer />
+            <CartProvider>
+                <Header />
+                {props.children}
+                <Footer />
+            </CartProvider>
         </>
     )
 }

@@ -1,4 +1,4 @@
-import Boilerplate from 'components/shared/Boilerplate';
+import Boilerplate from 'components/boilerplate/Boilerplate';
 import 'styles/style.scss';
 
 function MyApp({ Component, pageProps }) {

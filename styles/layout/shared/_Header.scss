@@ -53,15 +53,6 @@
         display: flex;
     }
 
-    &__cart {
-        @include flex();
-        cursor: pointer;
-
-        @include breakpoint(tablet) {
-            margin-left: auto;
-        }
-    }
-
     &__nav {
         @include breakpoint(mobTab) {
             position: absolute;

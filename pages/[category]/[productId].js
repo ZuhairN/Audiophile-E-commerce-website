@@ -2,8 +2,7 @@ import Head from "next/head";
 import ProductDetails from "components/products/ProductDetails";
 import Gear from "components/shared/Gear";
 import MobNavList from "components/shared/MobNavList";
-import path from 'path';
-import fs from 'fs';
+import data from 'data.json';
 
 export default function Product({ productData }) {
     return (
@@ -22,10 +21,7 @@ export default function Product({ productData }) {
 
 export const getStaticProps = async context => {
     const { category, productId } = context.params;
-    const filePath = path.join(process.cwd(), 'data.json')
-    const res = fs.readFileSync(filePath, 'utf8');
-    const parsedData = JSON.parse(res).products;
-    const productData = parsedData.find(product => product.category === category && product.productId === productId);
+    const productData = data.find(product => product.category === category && product.productId === productId);
     return {
         props: {
             productData,

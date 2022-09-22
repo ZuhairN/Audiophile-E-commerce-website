@@ -6,9 +6,9 @@ import Link from "next/link";
 import logo from 'public/images/shared/desktop/logo.svg';
 import openMenu from 'public/images/shared/tablet/icon-hamburger.svg';
 import closeMenu from 'public/images/shared/tablet/icon-close-menu.svg';
-import cart from 'public/images/shared/desktop/icon-cart.svg';
-import MobNavList from "./MobNavList";
+import MobNavList from "../shared/MobNavList";
 import NavList from "./NavList";
+import Cart from "./Cart";
 
 
 export default function Header() {
@@ -31,7 +31,7 @@ export default function Header() {
                     <NavList />
                     <MobNavList />
                 </nav>
-                <div className='Header__cart' onClick={() => alert('cart')}><Image src={cart} alt='cart' /></div>
+                <Cart />
             </div>
             <div className={`Header__lightbox ${isExpanded ? 'active' : ''}`}></div>
         </header>

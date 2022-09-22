@@ -90,11 +90,12 @@
     &__YX1 {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 2.4rem;
+        gap: 2.8rem;
 
         @include breakpoint(mobile) {
             grid-template-columns: 1fr;
             grid-template-rows: repeat(2, 1fr);
+            gap: 2.4rem;
         }
 
         @include breakpoint(tablet) {

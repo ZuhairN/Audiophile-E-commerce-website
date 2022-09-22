@@ -1,6 +1,6 @@
-import Btn from "components/shared/Btn";
 import { useRouter } from "next/router";
 import { v4 as uuid } from 'uuid';
+import Btn from "components/shared/Btn";
 import Product from "../shared/Product";
 
 export default function ProductDetails({ data, shortName, features, includedItems, gallery, others }) {

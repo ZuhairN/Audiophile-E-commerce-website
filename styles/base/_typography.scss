@@ -120,6 +120,10 @@ html {
     &--dark {
         @extend .para;
         color: $clr-txt;
+
+        .Cart & {
+            font-weight: 700;
+        }
     }
 
     &--copyright {

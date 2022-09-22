@@ -32,7 +32,7 @@ a {
     color: $clr-white;
     transition: all 250ms ease-in-out;
 
-    .Header &:hover,
+    .Header &:hover:not(.Btn--orange),
     .Footer &:hover,
     .MobNavList &:hover {
         color: $clr-orange;
@@ -50,7 +50,13 @@ button {
     background-color: transparent;
     transition: all 250ms ease-in-out;
 
-    &:hover {
+    &.Btn--orange {
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    &:not(.Btn--orange):hover {
         color: $clr-orange;
     }
 }

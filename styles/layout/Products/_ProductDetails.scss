@@ -68,7 +68,7 @@
     &__gallery {
         display: grid;
         grid-template-columns: 1fr calc(790fr / 554);
-        gap: 2.8rem;
+        gap: 2.4rem;
 
         >* {
             display: flex;
@@ -87,6 +87,10 @@
                 grid-column: 1/1;
                 grid-row: 3/4;
             }
+        }
+
+        @include breakpoint(desktop) {
+            gap: 2.8rem;
         }
     }
 
