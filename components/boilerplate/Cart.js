@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { CartContext } from 'contexts/cart.context';
 import { AiOutlineShoppingCart, AiOutlineDelete } from 'react-icons/ai';
 import Image from 'next/image';
@@ -8,10 +9,12 @@ import Btn from '../shared/Btn';
 export default function Cart() {
     const [isExpanded, setIsExpanded] = useState(false);
     const [cartItems, setCartItems] = useState([]); //React hydration error
+    const { asPath } = useRouter();
     const toggleCart = () => setIsExpanded(st => !st);
     const [cart, dispatch] = useContext(CartContext);
     const reset = () => dispatch({ type: 'reset' });
     useEffect(() => setCartItems(cart), [cart])
+    useEffect(() => setIsExpanded(false), [asPath])
 
     let total = 0;
     let totalPrice = 0;
@@ -21,7 +24,7 @@ export default function Cart() {
     return (
         <div className='Cart' >
             <AiOutlineShoppingCart className='Cart__logo' onClick={toggleCart} />
-            {cartItems.length ? <div className='Cart__num'>{total}</div> : null}
+            {cartItems.length ? <div className='Cart__num'>{total < 10 ? total : '9+'}</div> : null}
             <div className={`Cart__details ${isExpanded ? 'active' : ''}`}>
                 {!cartItems.length ?
                     <>
@@ -52,7 +55,7 @@ export default function Cart() {
                             <span>TOTAL</span>
                             <h4 className='heading--4'>$ {totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</h4>
                         </div>
-                        <Btn cls='orange' href='/' text='CHECKOUT' />
+                        <Btn cls='orange' href='/checkout' text='CHECKOUT' />
                     </>
                 }
             </div>

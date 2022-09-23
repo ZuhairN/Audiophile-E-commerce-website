@@ -1,17 +1,9 @@
-@use '../../utils' as *;
+@use 'styles/utils' as *;
 
 .ProductDetails {
     @extend %container;
     @include flex($direct: column, $align: flex-start, $gap: 12rem);
     margin-bottom: 5rem;
-
-    &__back {
-        position: relative;
-        top: 7rem;
-        font-size: 1.5rem;
-        font-weight: 500;
-        color: $clr-txt;
-    }
 
     &__content {
         @include flex($direct: column, $align: flex-start, $gap: 12rem);

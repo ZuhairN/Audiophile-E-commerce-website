@@ -1,11 +1,9 @@
-import { useRouter } from "next/router";
 import { v4 as uuid } from 'uuid';
 import Btn from "components/shared/Btn";
 import Product from "../shared/Product";
+import BackBtn from 'components/shared/BackBtn';
 
 export default function ProductDetails({ data, shortName, features, includedItems, gallery, others }) {
-    const Router = useRouter();
-    const handleBack = () => Router.back();
     const responsiveImg = (img, alt) => (
         <picture >
             <source media='(min-width: 53.5em)' srcSet={img.desktop} />
@@ -16,7 +14,7 @@ export default function ProductDetails({ data, shortName, features, includedItem
 
     return (
         <div className='ProductDetails'>
-            <button className='ProductDetails__back' onClick={handleBack}>Go Back</button>
+            <BackBtn />
             <Product {...data} alpha />
             <div className='ProductDetails__content'>
                 <div className='ProductDetails__features'>

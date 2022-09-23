@@ -4,6 +4,7 @@
     @include flex();
     position: relative;
     z-index: 50;
+    color: $clr-blacky;
 
     &__logo {
         font-size: 2.4rem;
@@ -94,11 +95,12 @@
         }
 
         &__price {
-            @include flex($direct: column, $align: flex-start, $gap: 0);
-            font-size: 1.4rem;
+            @include flex($direct: column, $align: flex-start, $gap: .2rem);
+            font-size: 1.5rem;
             font-weight: 700;
 
             >:last-child {
+                font-size: 1.4rem;
                 color: $clr-txt;
             }
         }

@@ -1,4 +1,4 @@
-@use '../../utils' as *;
+@use 'styles/utils' as *;
 
 .Product {
     @include flex($direct: column, $gap: 3.2rem);
@@ -81,7 +81,7 @@
             margin-right: auto;
 
             @include breakpoint(tablet) {
-                flex: 1 60%;
+                flex: 1 56%;
             }
         }
     }

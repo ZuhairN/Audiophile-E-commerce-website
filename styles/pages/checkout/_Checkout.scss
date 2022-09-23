@@ -1,0 +1,11 @@
+@use 'styles/utils' as *;
+
+.Checkout {
+    background-color: $clr-l-gray;
+    padding-top: 8rem;
+
+    &__container {
+        @include flex($direct: column, $align: stretch, $gap: 4rem);
+        @extend %container;
+    }
+}

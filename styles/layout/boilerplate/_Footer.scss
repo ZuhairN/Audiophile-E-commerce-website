@@ -1,7 +1,8 @@
-@use '../../utils' as *;
+@use 'styles/utils' as *;
 
 .Footer {
     background-color: $clr-blacky;
+    flex-grow: 1;
 
     &__container {
         @extend %container;

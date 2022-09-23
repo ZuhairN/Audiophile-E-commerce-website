@@ -5,12 +5,12 @@ import MobNavList from "components/shared/MobNavList";
 import Gear from "components/shared/Gear";
 import data from 'data.json';
 
-export default function Template({ categData }) {
+export default function Category({ categData }) {
     const title = categData[0].category;
     return (
         <>
             <Head>
-                <title>{title.charAt(0).toUpperCase() + title.slice(1)}</title>
+                <title>Audiophile-{title}</title>
             </Head>
             <main>
                 <Title title={title} />

@@ -1,0 +1,16 @@
+@use 'styles/utils' as *;
+
+.BackBtn {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $clr-txt;
+
+    .ProductDetails & {
+        position: relative;
+        top: 8rem;
+    }
+
+    .Checkout & {
+        align-self: flex-start;
+    }
+}

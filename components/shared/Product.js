@@ -34,7 +34,7 @@ export default function Product({ productId, category, categoryImage, image, nam
         <div className='Product'>
             <picture className='Product__img'>
                 <source media='(min-width: 53.5em)' srcSet={!alpha ? categoryImage.desktop : image.desktop} />
-                <source media={!alpha ? '(min-width: 33em)' : '(min-width: 40em)'} srcSet={!alpha ? categoryImage.tablet : image.tablet} />
+                <source media={!alpha ? '(min-width: 33em)' : '(min-width: 37em)'} srcSet={!alpha ? categoryImage.tablet : image.tablet} />
                 <img src={!alpha ? categoryImage.mobile : image.mobile} alt={name} />
             </picture>
             <div className='Product__content'>

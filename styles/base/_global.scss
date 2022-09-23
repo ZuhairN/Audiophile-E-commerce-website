@@ -1,18 +1,22 @@
-@use '../utils' as *;
+@use 'styles/utils' as *;
 
 html {
     font-size: 62.5%;
 }
 
 body {
-    min-height: 100vh;
     font-size: 1.6rem;
     line-height: 1.6;
 }
 
+#__next {
+    min-height: 100vh;
+    @include flex($direct: column, $justify: flex-start, $align: stretch, $gap: 0)
+}
+
 main {
     @include flex($direct: column, $align: stretch, $gap: 12rem);
-    margin-bottom: 12rem;
+    padding-bottom: 13.8rem;
 }
 
 img {
