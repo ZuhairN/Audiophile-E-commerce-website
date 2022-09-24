@@ -8,4 +8,13 @@
         @include flex($direct: column, $align: stretch, $gap: 4rem);
         @extend %container;
     }
+
+    &__details {
+        @include flex($direct: column, $align: stretch, $gap: 3.2rem);
+
+        @include breakpoint(desktop) {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+    }
 }

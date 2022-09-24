@@ -1,4 +1,4 @@
-import CartProvider from "contexts/cart.context";
+import CartProvider from "logic/cart.context";
 import Head from "next/head";
 import Footer from "./Footer";
 import Header from "./Header";

@@ -6,6 +6,11 @@
     background-color: $clr-white;
     border-radius: .8rem;
 
+    @include breakpoint(desktop) {
+        flex: 60%;
+        padding-inline: min(4.8rem, 3vw)
+    }
+
     &__billing {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

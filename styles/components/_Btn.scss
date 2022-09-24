@@ -3,6 +3,7 @@
 .Btn {
     letter-spacing: .8px;
     padding: 1.4rem 3.2rem;
+    text-align: center;
 
     &--orange {
         @extend .Btn;

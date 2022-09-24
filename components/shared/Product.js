@@ -1,34 +1,23 @@
 import { useContext, useEffect, useReducer } from "react";
 import { useRouter } from 'next/router';
 import Btn from "./Btn";
-import { CartContext } from "contexts/cart.context";
+import { DispatchContext } from "logic/cart.context";
+import reducer from "logic/qty.reducer";
 
-const reducer = (state, action) => {
-    switch (action.type) {
-        case 'increment':
-            return { count: state.count + action.amount };
-        case 'decrement':
-            if (state.count === 1) return { count: 1 }
-            return { count: state.count - action.amount };
-        case 'reset':
-            return { count: 1 }
-        default:
-            return { count: state.count }
-    }
-}
+
 
 export default function Product({ productId, category, categoryImage, image, name, description, isNew, price, shortName, alpha }) {
-    const { asPath } = useRouter();
+    const cartDispatch = useContext(DispatchContext);
     const [counter, dispatch] = useReducer(reducer, { count: 1 });
+    const { asPath } = useRouter();
     const sub = () => dispatch({ type: 'decrement', amount: 1 });
     const add = () => dispatch({ type: 'increment', amount: 1 });
-    useEffect(() => dispatch({ type: 'reset' }), [asPath]);
-
-    const [cart, cartDispatch] = useContext(CartContext);
     const addToCart = () => {
         cartDispatch({ type: 'add', id: productId, name: shortName, qty: counter.count, price });
         dispatch({ type: 'reset' })
     }
+    useEffect(() => dispatch({ type: 'reset' }), [asPath]);
+
 
     return (
         <div className='Product'>
@@ -50,8 +39,8 @@ export default function Product({ productId, category, categoryImage, image, nam
                                 <button type='button' onClick={add}><span>+</span></button>
                             </div>
                             <button className='Btn--orange' onClick={addToCart}>ADD TO CART</button>
-                        </div></>
-                }
+                        </div>
+                    </>}
             </div>
         </div>
     )

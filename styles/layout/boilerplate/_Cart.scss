@@ -46,7 +46,6 @@
         padding: 3.2rem;
         border-radius: .8rem;
         background-color: $clr-white;
-        text-align: center;
         opacity: 0;
         visibility: hidden;
         transform: scale(.1);
@@ -83,60 +82,6 @@
         }
     }
 
-    &__item {
-        @include flex($justify: flex-start);
-
-        img {
-            border-radius: .8rem;
-        }
-
-        >:last-child {
-            margin-left: auto;
-        }
-
-        &__price {
-            @include flex($direct: column, $align: flex-start, $gap: .2rem);
-            font-size: 1.5rem;
-            font-weight: 700;
-
-            >:last-child {
-                font-size: 1.4rem;
-                color: $clr-txt;
-            }
-        }
-    }
-
-    &__count {
-        @include flex($gap: 0);
-        background-color: $clr-l-gray;
-        font-size: 1.4rem;
-        font-weight: 700;
-        min-height: 3.2rem;
-        min-width: 9rem;
-
-        >span {
-            text-align: center;
-            min-width: 2ch;
-        }
-
-        >*:not(:nth-child(2)) {
-            font: inherit;
-            align-self: stretch;
-            flex: 1;
-            color: rgba($clr-txt, .3);
-
-            svg {
-                @include flex();
-                margin-inline: auto;
-            }
-
-            &:hover {
-                color: $clr-orange;
-                background-color: $clr-gray;
-            }
-        }
-    }
-
     &__totalPrice {
         @include flex($justify: space-between);
 
@@ -144,6 +89,10 @@
             color: $clr-txt;
             font-size: 1.5rem;
         }
+    }
+
+    &__checkout {
+        @include flex($direct: column, $align: stretch)
     }
 
     &__lightbox {

@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
+import useToggle from "logic/useToggle";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,22 +9,19 @@ import openMenu from 'public/images/shared/tablet/icon-hamburger.svg';
 import closeMenu from 'public/images/shared/tablet/icon-close-menu.svg';
 import MobNavList from "../shared/MobNavList";
 import NavList from "./NavList";
-import Cart from "./Cart";
+import Cart from "../cart/Cart";
 
 
 export default function Header() {
-    const [isExpanded, setIsExpanded] = useState(false);
+    const [isExpanded, toggle, collapse] = useToggle(false);
     const { query } = useRouter();
-    const toggleMenu = () => setIsExpanded(st => !st);
 
-    useEffect(() => {
-        setIsExpanded(false);
-    }, [query])
+    useEffect(() => { collapse() }, [query])
 
     return (
         <header className='Header'>
             <div className='Header__container'>
-                <div className='Header__menu' onClick={toggleMenu}><Image src={isExpanded ? closeMenu : openMenu} alt='menu' /></div>
+                <div className='Header__menu' onClick={toggle}><Image src={isExpanded ? closeMenu : openMenu} alt='menu' /></div>
                 <Link href='/'>
                     <a className='Header__logo'><Image src={logo} alt='website-logo' /></a>
                 </Link>
@@ -33,7 +31,7 @@ export default function Header() {
                 </nav>
                 <Cart />
             </div>
-            <div className={`Header__lightbox ${isExpanded ? 'active' : ''}`}></div>
+            <div className={`Header__lightbox ${isExpanded ? 'active' : ''}`} onClick={collapse}></div>
         </header>
     )
 }
