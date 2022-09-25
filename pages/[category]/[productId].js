@@ -8,7 +8,7 @@ export default function Product({ productData }) {
     return (
         <>
             <Head>
-                <title>Audiophile-{productData.productId}</title>
+                <title>{`Audiophile-${productData.productId}`}</title>
             </Head>
             <main>
                 <ProductDetails {...productData} data={productData} />

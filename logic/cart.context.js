@@ -6,7 +6,7 @@ export const CartContext = createContext();
 export const DispatchContext = createContext();
 
 export default function CartProvider(props) {
-    const [cart, setCart] = useState([]); //React hydration error + more efficient to avoid unnecessary renders
+    const [cart, setCart] = useState([]); //React hydration error
     const [state, dispatch] = useLocalStorageReducer(reducer, [])
     useEffect(() => setCart(state), [state])
     return (

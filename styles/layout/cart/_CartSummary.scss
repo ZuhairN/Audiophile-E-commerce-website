@@ -1,0 +1,63 @@
+@use 'styles/utils' as *;
+
+.CartSummary {
+    @include flex($direct: column, $align: stretch, $gap: 2.4rem);
+    background-color: $clr-white;
+    padding: 3.2rem;
+    border-radius: .8rem;
+    text-align: center;
+
+    .Checkout & {
+
+        @include breakpoint(tablet) {
+            width: max(30rem, 50%);
+        }
+
+        @include breakpoint(desktop) {
+            max-width: 34.5rem;
+            flex: 40%;
+        }
+    }
+
+
+    &__logo {
+        font-size: 10rem;
+        align-self: center;
+    }
+
+    &__title {
+        @include flex($justify: space-between);
+
+        button {
+            color: $clr-txt;
+            font-size: 1.5rem;
+            text-decoration: underline rgba($clr-txt, .3);
+
+            &:hover {
+                text-decoration-color: $clr-orange;
+            }
+        }
+    }
+
+    &__totalPrice {
+        @include flex($direct: column, $align: stretch, $gap: .5rem)
+    }
+
+    &__invoice {
+        @include flex($justify: space-between);
+
+        &+&:last-of-type {
+            margin-top: 1.6rem;
+            color: $clr-orange;
+        }
+
+        span {
+            font-size: 1.5rem;
+            color: $clr-txt;
+        }
+    }
+
+    &__btn {
+        @include flex($direct: column, $align: stretch)
+    }
+}

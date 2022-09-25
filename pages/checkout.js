@@ -1,7 +1,7 @@
 import Head from "next/head";
 import CheckoutForm from 'components/checkout/CheckoutForm';
 import BackBtn from "components/shared/BackBtn";
-import CartSummary from "components/checkout/CartSummary";
+import CartSummary from "components/cart/CartSummary";
 
 export default function Checkout() {
     return (

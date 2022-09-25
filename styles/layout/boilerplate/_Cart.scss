@@ -38,14 +38,11 @@
     }
 
     &__details {
-        @include flex($direct: column, $align: stretch, $gap: 2.4rem);
+        @include flex($direct: column, $align: stretch);
         position: absolute;
         top: 0;
         right: 0;
         min-width: 34.5rem;
-        padding: 3.2rem;
-        border-radius: .8rem;
-        background-color: $clr-white;
         opacity: 0;
         visibility: hidden;
         transform: scale(.1);
@@ -61,38 +58,6 @@
                 transform: translate(calc(-50vw + 2.4rem + 34.5rem / 2), 9.6rem) scale(1);
             }
         }
-
-        &__logo {
-            font-size: 10rem;
-            align-self: center;
-        }
-    }
-
-    &__title {
-        @include flex($justify: space-between);
-
-        button {
-            color: $clr-txt;
-            font-size: 1.5rem;
-            text-decoration: underline rgba($clr-txt, .3);
-
-            &:hover {
-                text-decoration-color: $clr-orange;
-            }
-        }
-    }
-
-    &__totalPrice {
-        @include flex($justify: space-between);
-
-        span {
-            color: $clr-txt;
-            font-size: 1.5rem;
-        }
-    }
-
-    &__checkout {
-        @include flex($direct: column, $align: stretch)
     }
 
     &__lightbox {

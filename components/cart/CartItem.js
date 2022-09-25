@@ -5,6 +5,8 @@ import { DispatchContext } from "logic/cart.context";
 
 export default function CartItem({ id, name, qty, price, isControlled }) {
     const dispatch = useContext(DispatchContext);
+    const sub = (id, qty) => dispatch({ type: qty !== 1 ? 'decrement' : 'destroy', id });
+    const add = (id) => dispatch({ type: 'increment', id });
 
     return (
         <div className='CartItem'>
@@ -17,9 +19,9 @@ export default function CartItem({ id, name, qty, price, isControlled }) {
                 <span className='CartItem__qty'>x{qty}</span>
             ) : (
                 <div className='CartItem__control'>
-                    <button className='CartItem__control__btn' type='button' onClick={() => dispatch({ type: qty !== 1 ? 'decrement' : 'destroy', id })}>{qty !== 1 ? '-' : <AiOutlineDelete />}</button>
-                    <span className='CartItem__control__count'>{qty}</span>
-                    <button className='CartItem__control__btn' type='button' onClick={() => dispatch({ type: 'increment', id })} >+</button>
+                    <button type='button' onClick={() => sub(id, qty)}>{qty !== 1 ? '-' : <AiOutlineDelete />}</button>
+                    <span>{qty}</span>
+                    <button type='button' onClick={() => add(id)} >+</button>
                 </div>
             )}
         </div>

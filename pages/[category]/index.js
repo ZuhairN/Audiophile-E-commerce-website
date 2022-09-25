@@ -10,7 +10,7 @@ export default function Category({ categData }) {
     return (
         <>
             <Head>
-                <title>Audiophile-{title}</title>
+                <title>{`Audiophile-${title}`}</title> {/*Warning: A title element received an array with more than 1 element as children => sol: Template Literal*/}
             </Head>
             <main>
                 <Title title={title} />

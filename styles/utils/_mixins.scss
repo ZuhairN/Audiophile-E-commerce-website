@@ -1,3 +1,5 @@
+@use './colors' as *;
+
 @mixin flex($direct: row, $justify: center, $align: center, $gap: 1.6rem) {
     display: flex;
     flex-direction: $direct;
@@ -43,5 +45,31 @@
         padding-inline: 4rem;
         width: min(100%, 115rem);
         margin-inline: auto;
+    }
+}
+
+%controller {
+    @include flex($gap: 0);
+    background-color: $clr-l-gray;
+    font-size: 1.4rem;
+
+    >button {
+        align-self: stretch;
+        color: rgba($clr-txt, .3);
+
+        svg {
+            @include flex();
+            margin-inline: auto;
+        }
+
+        &:hover {
+            color: $clr-orange;
+            background-color: $clr-gray;
+        }
+    }
+
+    >span {
+        text-align: center;
+        min-width: 3ch;
     }
 }

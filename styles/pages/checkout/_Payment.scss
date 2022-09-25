@@ -1,0 +1,48 @@
+@use 'styles/utils' as *;
+@use 'styles/components' as *;
+@use './CheckoutForm' as *;
+
+.Payment {
+    @include flex($direct: column, $align: stretch, $gap: 2.4rem);
+
+    &__subtitle {
+        @extend .CheckoutForm__subtitle;
+    }
+
+    &__label {
+        @extend .InputSet__label;
+    }
+
+    &__control {
+        @include flex($justify: space-between, $align: flex-start, $gap: .8rem);
+
+        @include breakpoint(mobile) {
+            flex-direction: column;
+            align-items: stretch;
+        }
+    }
+
+    &__input {
+        @include flex($direct: column, $align: stretch);
+        flex-basis: calc(50% - .8rem);
+    }
+
+    &__e-Money {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.6rem;
+
+        @include breakpoint(mobile) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+
+    &__cash {
+        @include flex($gap: 2.4rem);
+
+        :first-child {
+            min-width: 4.8rem;
+        }
+    }
+}
