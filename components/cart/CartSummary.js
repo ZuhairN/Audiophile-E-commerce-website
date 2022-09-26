@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import CartItem from "./CartItem";
 
-export default function CartSummary({ isControlled, collapse }) {
+export default function CartSummary({ isControlled, collapse, isCash }) {
     const cart = useContext(CartContext);
     const dispatch = useContext(DispatchContext);
     const reset = () => dispatch({ type: 'reset' });
@@ -48,8 +48,12 @@ export default function CartSummary({ isControlled, collapse }) {
                                 </div>
                             </>}
                     </div>
-                    <div className='CartSummary__btn' onClick={isControlled ? collapse : reset}>
-                        <Btn cls='orange' href={isControlled ? '/checkout' : '/'} text={isControlled ? 'CHECKOUT' : 'CONTINUE & PAY'} />
+                    <div className='CartSummary__btn' onClick={isControlled ? collapse : null}>
+                        {isControlled ?
+                            <Btn cls='orange' href='/checkout' text='CHECKOUT' />
+                            :
+                            <button className='Btn--orange'>{isCash ? 'CONTINUE' : 'CONTINUE & PAY'}</button>
+                        }
                     </div>
                 </>)
             }

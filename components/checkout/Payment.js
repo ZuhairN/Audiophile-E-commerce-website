@@ -1,13 +1,12 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Image from 'next/image';
 import cashMoney from 'public/images/checkout/icon-cash-on-delivery.svg';
 import InputSet from './InputSet';
 
 
-export default function Payment() {
-    const [payMethod, setPayMethod] = useState('eMoney');
-    const eMoneyMethod = () => setPayMethod('eMoney');
-    const cashMethod = () => setPayMethod('cash');
+export default function Payment({ isCash, setIsCash }) {
+    const eMoneyMethod = () => setIsCash(false)
+    const cashMethod = () => setIsCash(true)
 
     return (
         <fieldset className='Payment'>
@@ -19,10 +18,10 @@ export default function Payment() {
                     <InputSet id='cash-payment' type='radio' label='Cash on Delivery' name='payMethod' value='cash' onClick={cashMethod} />
                 </div>
             </div>
-            {payMethod === 'eMoney' ?
+            {!isCash ?
                 <div className='Payment__e-Money'>
-                    <InputSet id='e-Money#' label='e-Money Number' placeholder='238521993' />
-                    <InputSet id='e-Money-PIN' label='e-Money PIN' placeholder='6891' />
+                    <InputSet id='e-Money#' label='e-Money Number' placeholder='238521993' pattern='number' />
+                    <InputSet id='e-Money-PIN' label='e-Money PIN' placeholder='6891' pattern='number' maxLength={4} />
                 </div>
                 :
                 <div className='Payment__cash'>

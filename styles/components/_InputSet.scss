@@ -2,6 +2,27 @@
 
 .InputSet {
     @include flex($direct: column, $align: flex-stretch, $gap: .8rem);
+    position: relative;
+
+    &__error {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1.2rem;
+        z-index: 100;
+        color: $clr-input-error;
+        // border: 1px solid red;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(20%);
+        transition: all 250ms ease-in-out;
+    }
+
+    &.empty &__error {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
 
     &__input {
         font: inherit;
@@ -20,6 +41,11 @@
             color: rgba($clr-txt, .7);
             font-weight: 700;
         }
+
+    }
+
+    &.empty &__input {
+        border-color: $clr-input-error;
     }
 
     &__label {
@@ -30,6 +56,10 @@
         &:not(h5) {
             cursor: pointer
         }
+    }
+
+    &.empty &__label {
+        color: $clr-input-error;
     }
 
     &--radio {
