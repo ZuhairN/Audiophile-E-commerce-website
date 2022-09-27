@@ -2,6 +2,7 @@
 
 .Header {
     background-color: $clr-blacky;
+    z-index: 50;
 
     &__container {
         @extend %container;
@@ -94,29 +95,6 @@
     .MobNavList {
         @include breakpoint(desktop) {
             display: none;
-        }
-    }
-
-    &__lightbox {
-        display: none;
-
-        @include breakpoint(mobTab) {
-            display: block;
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-color: $clr-txt;
-            z-index: 50;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 250ms ease-out;
-
-            &.active {
-                opacity: 1;
-                visibility: visible;
-            }
         }
     }
 }

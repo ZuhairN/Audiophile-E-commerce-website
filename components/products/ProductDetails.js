@@ -15,7 +15,7 @@ export default function ProductDetails({ data, shortName, features, includedItem
     return (
         <div className='ProductDetails'>
             <BackBtn />
-            <Product {...data} alpha />
+            <Product {...data} isControlled />
             <div className='ProductDetails__content'>
                 <div className='ProductDetails__features'>
                     <h2 className='heading--2'>FEATURES</h2>

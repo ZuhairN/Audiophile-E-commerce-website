@@ -67,6 +67,12 @@ html {
         .Product & {
             max-width: 14ch;
         }
+
+        .CheckoutForm__confirm & {
+            span {
+                display: block;
+            }
+        }
     }
 
     &--3 {

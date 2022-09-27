@@ -6,7 +6,7 @@ import reducer from "logic/qty.reducer";
 
 
 
-export default function Product({ productId, category, categoryImage, image, name, description, isNew, price, shortName, alpha }) {
+export default function Product({ productId, category, categoryImage, image, name, description, isNew, price, shortName, isControlled }) {
     const cartDispatch = useContext(DispatchContext);
     const [counter, dispatch] = useReducer(reducer, { count: 1 });
     const { asPath } = useRouter();
@@ -22,15 +22,15 @@ export default function Product({ productId, category, categoryImage, image, nam
     return (
         <div className='Product'>
             <picture className='Product__img'>
-                <source media='(min-width: 53.5em)' srcSet={!alpha ? categoryImage.desktop : image.desktop} />
-                <source media={!alpha ? '(min-width: 33em)' : '(min-width: 37em)'} srcSet={!alpha ? categoryImage.tablet : image.tablet} />
-                <img src={!alpha ? categoryImage.mobile : image.mobile} alt={name} />
+                <source media='(min-width: 53.5em)' srcSet={!isControlled ? categoryImage.desktop : image.desktop} />
+                <source media={!isControlled ? '(min-width: 33em)' : '(min-width: 37em)'} srcSet={!isControlled ? categoryImage.tablet : image.tablet} />
+                <img src={!isControlled ? categoryImage.mobile : image.mobile} alt={name} />
             </picture>
             <div className='Product__content'>
                 <h2 className='heading--2'>{isNew ? <span className='heading--span'>NEW PRODUCT</span> : null} {name.toUpperCase()}</h2>
                 <p className='para--dark'>{description}</p>
 
-                {!alpha ? <Btn cls='orange' href={`${category}/${productId}`} text='SEE PRODUCT' /> :
+                {!isControlled ? <Btn cls='orange' href={`${category}/${productId}`} text='SEE PRODUCT' /> :
                     <> <h4 className='heading--4'>$ {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</h4>
                         <div className='Product__btns'>
                             <div className='Product__count'>

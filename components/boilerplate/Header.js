@@ -10,6 +10,7 @@ import closeMenu from 'public/images/shared/tablet/icon-close-menu.svg';
 import MobNavList from "../shared/MobNavList";
 import NavList from "./NavList";
 import Cart from "../cart/Cart";
+import LightBox from "components/shared/LightBox";
 
 
 export default function Header() {
@@ -31,7 +32,7 @@ export default function Header() {
                 </nav>
                 <Cart />
             </div>
-            <div className={`Header__lightbox ${isExpanded ? 'active' : ''}`} onClick={collapse}></div>
+            <LightBox isExpanded={isExpanded} collapse={collapse} />
         </header>
     )
 }

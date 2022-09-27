@@ -1,10 +1,9 @@
 import { useContext } from 'react';
-import { CartContext, DispatchContext } from 'logic/cart.context';
+import { CartContext } from 'logic/cart.context';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import Btn from '../shared/Btn';
-import CartItem from './CartItem';
 import useToggle from 'logic/useToggle';
 import CartSummary from './CartSummary';
+import LightBox from 'components/shared/LightBox';
 
 
 export default function Cart() {
@@ -20,7 +19,7 @@ export default function Cart() {
             <div className={`Cart__details ${isExpanded ? 'active' : ''}`}>
                 <CartSummary collapse={collapse} isControlled />
             </div>
-            <div className={`Cart__lightbox ${isExpanded ? 'active' : ''}`} onClick={collapse}></div>
+            <LightBox isExpanded={isExpanded} collapse={collapse} />
         </div>
     )
 }

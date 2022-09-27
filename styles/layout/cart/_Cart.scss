@@ -59,23 +59,4 @@
             }
         }
     }
-
-    &__lightbox {
-        display: block;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: $clr-txt;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 250ms ease-out;
-        z-index: -1;
-
-        &.active {
-            opacity: 1;
-            visibility: visible;
-        }
-    }
 }

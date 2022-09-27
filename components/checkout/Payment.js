@@ -20,8 +20,8 @@ export default function Payment({ isCash, setIsCash }) {
             </div>
             {!isCash ?
                 <div className='Payment__e-Money'>
-                    <InputSet id='e-Money#' label='e-Money Number' placeholder='238521993' pattern='number' />
-                    <InputSet id='e-Money-PIN' label='e-Money PIN' placeholder='6891' pattern='number' maxLength={4} />
+                    <InputSet id='e-Money#' label='e-Money Number' placeholder='238521993' validate='number' pattern='^(\d{9})$' maxLength={9} />
+                    <InputSet id='e-Money-PIN' label='e-Money PIN' placeholder='6891' validate='number' pattern='^(\d{4})$' maxLength={4} />
                 </div>
                 :
                 <div className='Payment__cash'>
