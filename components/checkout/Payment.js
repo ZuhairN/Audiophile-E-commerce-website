@@ -1,4 +1,3 @@
-import { useContext, useState } from 'react';
 import Image from 'next/image';
 import cashMoney from 'public/images/checkout/icon-cash-on-delivery.svg';
 import InputSet from './InputSet';
@@ -10,12 +9,12 @@ export default function Payment({ isCash, setIsCash }) {
 
     return (
         <fieldset className='Payment'>
-            <legend className='Payment__subtitle'>PAYMENT DETAILS</legend>
+            <legend className='Payment__subtitle'><h3>PAYMENT DETAILS</h3></legend>
             <div className='Payment__control'>
-                <h5 className='Payment__label'>Payment Method</h5>
+                <span className='Payment__label'>Payment Method</span>
                 <div className='Payment__input'>
-                    <InputSet id='e-Money-payment' type='radio' label='e-Money' name='payMethod' value='e-Money' onClick={eMoneyMethod} checked />
-                    <InputSet id='cash-payment' type='radio' label='Cash on Delivery' name='payMethod' value='cash' onClick={cashMethod} />
+                    <InputSet id='e-Money-payment' type='radio' label='e-Money' name='Payment Method (e-Money/cash)' value='e-Money' onClick={eMoneyMethod} checked />
+                    <InputSet id='cash-payment' type='radio' label='Cash on Delivery' name='Payment Method (e-Money/cash)' value='cash' onClick={cashMethod} />
                 </div>
             </div>
             {!isCash ?

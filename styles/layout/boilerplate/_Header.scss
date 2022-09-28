@@ -1,14 +1,14 @@
 @use 'styles/utils' as *;
 
 .Header {
+    color: $clr-white;
     background-color: $clr-blacky;
-    z-index: 50;
+    z-index: 100;
 
     &__container {
         @extend %container;
         @include flex($justify: space-between);
         position: relative;
-        z-index: 100;
         padding-block: 3.2rem;
 
         @include breakpoint(tablet) {
@@ -44,6 +44,10 @@
 
     &__menu {
         cursor: pointer;
+
+        >* {
+            pointer-events: none;
+        }
 
         @include breakpoint(desktop) {
             display: none;

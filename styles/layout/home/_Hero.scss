@@ -26,15 +26,18 @@
         right: 0;
         text-align: center;
         padding-inline: 2.4rem;
+        opacity: 0;
+        animation: 1s fade-up 1.5s forwards;
+
 
         @include breakpoint(mobile) {
             top: 56%;
-            transform: translateY(-50%);
+            transform: translateY(-30%);
         }
 
         @include breakpoint(tablet) {
             top: max(53%, 30rem);
-            transform: translateY(-50%);
+            transform: translateY(-30%);
         }
 
         @include breakpoint(desktop) {
@@ -45,11 +48,26 @@
             padding-inline: 4rem;
             width: min(100%, 115rem);
             margin-inline: auto;
-            transform: translateY(-50%);
+            transform: translateY(-30%);
         }
     }
 
     &__img {
         margin-inline: auto;
+        opacity: 0;
+        animation: 1s fade-in 500ms forwards;
+    }
+}
+
+@keyframes fade-in {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-up {
+    100% {
+        opacity: 1;
+        transform: translateY(-50%);
     }
 }

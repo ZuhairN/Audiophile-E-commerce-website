@@ -6,15 +6,19 @@
     z-index: 50;
     color: $clr-blacky;
 
+    &__btn {
+        cursor: pointer;
+
+        &:hover .Cart__logo {
+            color: $clr-orange;
+        }
+    }
+
     &__logo {
         font-size: 2.4rem;
         color: $clr-white;
-        cursor: pointer;
         transition: all 250ms ease-in-out;
-
-        &:hover {
-            color: $clr-orange;
-        }
+        pointer-events: none;
     }
 
     &__num {

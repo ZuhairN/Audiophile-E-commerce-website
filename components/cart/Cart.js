@@ -14,7 +14,7 @@ export default function Cart() {
 
     return (
         <div className='Cart'>
-            <AiOutlineShoppingCart className='Cart__logo' onClick={toggle} />
+            <button className='Cart__btn' onClick={toggle}><AiOutlineShoppingCart className='Cart__logo' /><span className='sr-only'>Cart</span></button>
             {cart.length ? <div className='Cart__num'>{totalQty < 10 ? totalQty : '9+'}</div> : null}
             <div className={`Cart__details ${isExpanded ? 'active' : ''}`}>
                 <CartSummary collapse={collapse} isControlled />

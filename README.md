@@ -6,11 +6,10 @@ This is a solution to the [Audiophile e-commerce website challenge on Frontend M
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
+  - [Screenshots](#screenshots)
+  - [Link](#link)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
 
 ## Overview
@@ -31,20 +30,25 @@ Users should be able to:
 - See an order confirmation modal after checking out with an order summary
 - **Bonus**: Keep track of what's in the cart, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
 
-### Screenshot
+### Screenshots
 
-### Links
+![Audiophile_Desktop](/public/images/screenshots/Audiophile_desktop.png)
+![Audiophile_Tablet](/public/images/screenshots/Audiophile_tablet.png)
+![Audiophile_Mobile](/public/images/screenshots/Audiophile_mobile.png)
 
-[Live Site URL](https://github.com/ZuhairN/Audiophile-E-commerce-website)
+### Link
+
+- [Live Site URL](https://zuhairn.github.io/Audiophile-E-commerce-website/)
 
 ## My process
 
 ### Built with
 
-- Next.js
-- SCSS preprocessor
+- [Next.js](https://nextjs.org/) - JS framework
+- [Sass](https://sass-lang.com/) - CSS preprocessor
 - Mobile-first workflow
 
-### What I learned
-
 ### Continued development
+
+- Next.js
+- React.js

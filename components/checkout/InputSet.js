@@ -30,10 +30,10 @@ export default function InputSet({ id, type = 'text', label, placeholder, name, 
         </>
       ) : (
         <>
-          <input className='InputSet--radio__input' id={id} type={type} name={name} value={value} placeholder={placeholder} defaultChecked={checked} onClick={onClick} />
+          <input className='sr-only' id={id} type={type} name={name} value={value} placeholder={placeholder} defaultChecked={checked} onClick={onClick} />
           <label className='InputSet--radio__label' htmlFor={id}>
-            <div><span></span></div>
-            <h4>{label}</h4>
+            <div><span className='InputSet--radio__label__btn'></span></div>
+            <span>{label}</span>
           </label>
         </>
       )}

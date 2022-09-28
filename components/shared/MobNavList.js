@@ -14,8 +14,8 @@ export default function MobNavList() {
             {cards.map(card => (
                 <li key={uuid()} className='MobNavList__card'>
                     <div className='MobNavList__img'><Image src={card.src} alt={card.alt} /></div>
-                    <h3>{card.alt.toUpperCase()}</h3>
-                    <Link href={`/${card.alt}`}><a>SHOP <Image src={arrow} alt='arrow' /></a></Link>
+                    <span>{card.alt.toUpperCase()}</span>
+                    <Link href={`/${card.alt}`}><a>SHOP <Image src={arrow} alt='arrow' aria-hidden='true' /></a></Link>
                 </li>
             ))}
         </ul>

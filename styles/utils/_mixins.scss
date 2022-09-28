@@ -62,7 +62,8 @@
             margin-inline: auto;
         }
 
-        &:hover {
+        &:hover,
+        &:focus {
             color: $clr-orange;
             background-color: $clr-gray;
         }

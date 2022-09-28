@@ -33,7 +33,8 @@
             font-size: 1.5rem;
             text-decoration: underline rgba($clr-txt, .3);
 
-            &:hover {
+            &:hover,
+            &:focus {
                 text-decoration-color: $clr-orange;
             }
         }
@@ -51,10 +52,11 @@
             color: $clr-orange;
         }
 
-        span {
-            font-size: 1.5rem;
-            color: $clr-txt;
-        }
+    }
+
+    &__subtitle {
+        font-size: 1.5rem;
+        color: $clr-txt;
     }
 
     &__btn {

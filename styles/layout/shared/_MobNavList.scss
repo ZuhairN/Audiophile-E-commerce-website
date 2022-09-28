@@ -17,7 +17,7 @@
         @include flex($direct: column);
         flex: 1;
         position: relative;
-        color: $clr-blacky;
+        color: $clr-txt;
         background-color: $clr-l-gray;
         font-size: 1.5rem;
         font-weight: 700;
@@ -29,10 +29,8 @@
             padding-top: max(18%, 7rem);
         }
 
-
-        a {
-            @include flex($gap: 1.2rem);
-            color: $clr-txt;
+        >span {
+            color: $clr-blacky;
         }
     }
 

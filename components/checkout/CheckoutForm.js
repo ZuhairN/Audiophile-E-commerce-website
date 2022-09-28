@@ -24,15 +24,16 @@ export default function CheckoutForm() {
     return (
         <form className='CheckoutForm' onSubmit={handleSubmit} noValidate>
             <div className='CheckoutForm__container'>
-                <h2 className='heading--2'>CHECKOUT</h2>
+                <h1 className='heading--2'>CHECKOUT</h1>
+                <h2 className='sr-only'>CHECKOUT FORM</h2>
                 <fieldset className='CheckoutForm__billing'>
-                    <legend className='CheckoutForm__subtitle'>BILLING DETAILS</legend>
+                    <legend className='CheckoutForm__subtitle'><h3>BILLING DETAILS</h3></legend>
                     <InputSet id='name' label='Name' placeholder='Alexei Ward' validate='name' />
                     <InputSet id='email' type='email' label='Email Address' placeholder='alexei@mail.com' validate='email' pattern='^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$' />
                     <InputSet id='phone#' label='Phone Number' placeholder='+1 202-555-0136' validate='number' />
                 </fieldset>
                 <fieldset className='CheckoutForm__shipping'>
-                    <legend className='CheckoutForm__subtitle'>SHIPPING INFO</legend>
+                    <legend className='CheckoutForm__subtitle'><h3>SHIPPING INFO</h3></legend>
                     <InputSet id='address' label='Address' placeholder='1137 Williams Avenue' validate='address' />
                     <InputSet id='zip-code' label='ZIP Code' placeholder='10001' validate='number' maxLength={5} pattern='^(\d{5})$' />
                     <InputSet id='city' label='City' placeholder='New York' validate='name' />

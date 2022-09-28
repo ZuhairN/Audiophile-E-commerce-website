@@ -34,25 +34,29 @@ a {
     font-size: 1.3rem;
     font-weight: 700;
     letter-spacing: 2px;
-    color: $clr-white;
     transition: all 250ms ease-in-out;
-
-    .Header &:hover:not(.Btn--orange),
-    .Footer &:hover,
-    .MobNavList &:hover {
-        color: $clr-orange;
-    }
 
     &.active {
         color: $clr-orange;
     }
+
+    &:not(.Btn--orange):not(.Btn--black):not(.Btn--transparent):hover,
+    &:not(.Btn--orange):not(.Btn--black):not(.Btn--transparent):focus {
+        color: $clr-orange;
+    }
+
+    .MobNavList & {
+        @include flex($gap: 1.2rem);
+    }
 }
 
 button {
+    @include flex();
     font: inherit;
+    padding: 0;
     border: none;
-    cursor: pointer;
     background-color: transparent;
+    cursor: pointer;
     transition: all 250ms ease-in-out;
 
     &.Btn--orange {
@@ -61,7 +65,33 @@ button {
         letter-spacing: 2px;
     }
 
-    &:not(.Btn--orange):hover {
+    &:not(.Btn--orange):hover,
+    &:not(.Btn--orange):focus {
         color: $clr-orange;
     }
+}
+
+* {
+    outline: none;
+}
+
+*:focus {
+    outline: 2px dashed $clr-orange;
+    outline-offset: 5px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }

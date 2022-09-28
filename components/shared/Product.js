@@ -10,11 +10,12 @@ export default function Product({ productId, category, categoryImage, image, nam
     const cartDispatch = useContext(DispatchContext);
     const [counter, dispatch] = useReducer(reducer, { count: 1 });
     const { asPath } = useRouter();
-    const sub = () => dispatch({ type: 'decrement', amount: 1 });
-    const add = () => dispatch({ type: 'increment', amount: 1 });
-    const addToCart = () => {
+    const sub = (e) => { dispatch({ type: 'decrement', amount: 1 }); e.target.blur() }
+    const add = (e) => { dispatch({ type: 'increment', amount: 1 }); e.target.blur() }
+    const addToCart = (e) => {
         cartDispatch({ type: 'add', id: productId, name: shortName, qty: counter.count, price });
         dispatch({ type: 'reset' })
+        e.target.blur();
     }
     useEffect(() => dispatch({ type: 'reset' }), [asPath]);
 
@@ -27,11 +28,13 @@ export default function Product({ productId, category, categoryImage, image, nam
                 <img src={!isControlled ? categoryImage.mobile : image.mobile} alt={name} />
             </picture>
             <div className='Product__content'>
-                <h2 className='heading--2'>{isNew ? <span className='heading--span'>NEW PRODUCT</span> : null} {name.toUpperCase()}</h2>
+                {isControlled ?
+                    <h1 className='heading--2'>{isNew ? <span className='heading--span'>NEW PRODUCT</span> : null} {name.toUpperCase()}</h1> :
+                    <h2 className='heading--2'>{isNew ? <span className='heading--span'>NEW PRODUCT</span> : null} {name.toUpperCase()}</h2>}
                 <p className='para--dark'>{description}</p>
 
                 {!isControlled ? <Btn cls='orange' href={`${category}/${productId}`} text='SEE PRODUCT' /> :
-                    <> <h4 className='heading--4'>$ {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</h4>
+                    <> <span className='heading--4'>$ {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
                         <div className='Product__btns'>
                             <div className='Product__count'>
                                 <button type='button' onClick={sub}><span>-</span></button>

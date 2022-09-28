@@ -23,28 +23,28 @@ export default function CartSummary({ isControlled, collapse, isCash }) {
                 :
                 (<>
                     <div className='CartSummary__title'>
-                        <h4 className='heading--4'>{isControlled ? `CART(${sum.totalQty})` : 'SUMMARY'}</h4>
+                        <h2 className='heading--4'>{isControlled ? <>CART({sum.totalQty}<span className="sr-only"> item(s) in</span>)</> : <><span className='sr-only'>CART </span>SUMMARY</>}</h2>
                         {isControlled ? <button onClick={reset}>Remove all</button> : null}
                     </div>
                     {cart.map(item => <CartItem key={item.id} {...item} isControlled={isControlled} />)}
                     <div className='CartSummary__totalPrice'>
                         <div className='CartSummary__invoice'>
-                            <span>TOTAL</span>
-                            <h4 className='heading--4'>$ {sum.totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</h4>
+                            <span className='CartSummary__subtitle'>TOTAL</span>
+                            <span className='heading--4'>$ {sum.totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
                         </div>
                         {isControlled ? null :
                             <>
                                 <div className='CartSummary__invoice'>
-                                    <span>SHIPPING</span>
-                                    <h4 className='heading--4'>$ 50</h4>
+                                    <span className='CartSummary__subtitle'>SHIPPING</span>
+                                    <span className='heading--4'>$ 50</span>
                                 </div>
                                 <div className='CartSummary__invoice'>
-                                    <span>VAT (INCLUDED)</span>
-                                    <h4 className='heading--4'>$ {Math.floor(sum.totalPrice * .2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</h4>
+                                    <span className='CartSummary__subtitle'>VAT (INCLUDED)</span>
+                                    <span className='heading--4'>$ {Math.floor(sum.totalPrice * .2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
                                 </div>
                                 <div className='CartSummary__invoice'>
-                                    <span>GRAND TOTAL</span>
-                                    <h4 className='heading--4'>$ {(sum.totalPrice + 50).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</h4>
+                                    <span className='CartSummary__subtitle'>GRAND TOTAL</span>
+                                    <span className='heading--4'>$ {(sum.totalPrice + 50).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
                                 </div>
                             </>}
                     </div>
@@ -52,7 +52,7 @@ export default function CartSummary({ isControlled, collapse, isCash }) {
                         {isControlled ?
                             <Btn cls='orange' href='/checkout' text='CHECKOUT' />
                             :
-                            <button className='Btn--orange'>{isCash ? 'CONTINUE' : 'CONTINUE & PAY'}</button>
+                            <button type='submit' className='Btn--orange'>{isCash ? 'CONTINUE' : 'CONTINUE & PAY'}</button>
                         }
                     </div>
                 </>)

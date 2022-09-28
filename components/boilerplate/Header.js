@@ -22,11 +22,11 @@ export default function Header() {
     return (
         <header className='Header'>
             <div className='Header__container'>
-                <div className='Header__menu' onClick={toggle}><Image src={isExpanded ? closeMenu : openMenu} alt='menu' /></div>
+                <button className='Header__menu' onClick={toggle} ><Image src={isExpanded ? closeMenu : openMenu} alt='menu' onMouseDown={(e) => e.target.blur()} /></button>
                 <Link href='/'>
-                    <a className='Header__logo'><Image src={logo} alt='website-logo' /></a>
+                    <a className='Header__logo' aria-current='page'><Image src={logo} alt='Audiophile E-commerce logo' /></a>
                 </Link>
-                <nav className={`Header__nav ${isExpanded ? 'active' : ''}`}>
+                <nav className={`Header__nav ${isExpanded ? 'active' : ''}`} aria-label='primary'>
                     <NavList />
                     <MobNavList />
                 </nav>

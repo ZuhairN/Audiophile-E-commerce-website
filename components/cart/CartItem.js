@@ -19,9 +19,9 @@ export default function CartItem({ id, name, qty, price, isControlled }) {
                 <span className='CartItem__qty'>x{qty}</span>
             ) : (
                 <div className='CartItem__control'>
-                    <button type='button' onClick={() => sub(id, qty)}>{qty !== 1 ? '-' : <AiOutlineDelete />}</button>
+                    <button type='button' onClick={(e) => { sub(id, qty); e.target.blur() }}>{qty !== 1 ? '-' : <AiOutlineDelete />}</button>
                     <span>{qty}</span>
-                    <button type='button' onClick={() => add(id)} >+</button>
+                    <button type='button' onClick={(e) => { add(id); e.target.blur() }} >+</button>
                 </div>
             )}
         </div>

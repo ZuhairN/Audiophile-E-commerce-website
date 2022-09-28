@@ -12,7 +12,7 @@ export default function NavList() {
             {links.map(link => (
                 <li key={uuid()}>
                     <Link href={link.href}>
-                        <a className={asPath === link.href ? 'active' : ''}>{link.title}</a>
+                        <a className={asPath === link.href ? 'active' : ''} aria-current={link.href === '/' ? 'page' : null}>{link.title}</a>
                     </Link>
                 </li>
             ))}

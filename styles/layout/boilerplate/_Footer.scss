@@ -1,6 +1,7 @@
 @use 'styles/utils' as *;
 
 .Footer {
+    color: $clr-white;
     background-color: $clr-blacky;
     flex-grow: 1;
 

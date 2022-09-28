@@ -10,7 +10,8 @@
         color: $clr-white;
         background: $clr-orange;
 
-        &:hover {
+        &:hover,
+        &:focus {
             background: lighten($clr-orange, 15%);
         }
 
@@ -25,8 +26,10 @@
         @extend .Btn;
         color: $clr-white;
         background: $clr-black;
+        outline-color: $clr-blacky;
 
-        &:hover {
+        &:hover,
+        &:focus {
             background: lighten($clr-black, 20%);
         }
     }
@@ -36,8 +39,10 @@
         color: $clr-black;
         background: transparent;
         border: 2px solid $clr-black;
+        outline-color: $clr-blacky;
 
-        &:hover {
+        &:hover,
+        &:focus {
             color: $clr-white;
             background: $clr-black;
         }
