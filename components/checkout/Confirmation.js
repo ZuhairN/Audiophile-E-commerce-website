@@ -11,8 +11,8 @@ export default function Confirm({ isSubmitted }) {
     const dispatch = useContext(DispatchContext);
     const cart = useContext(CartContext)
     const [isLess, setIsLess] = useState(true);
-    const viewLess = () => setIsLess(true);
-    const viewMore = () => setIsLess(false);
+    const viewLess = (e) => { setIsLess(true); e.target.blur() };
+    const viewMore = (e) => { setIsLess(false); e.target.blur() };
     const resetCart = () => dispatch({ type: 'reset' });
     const grandTotal = cart.reduce((total, { qty, price }) => total + qty * price, 50);
 

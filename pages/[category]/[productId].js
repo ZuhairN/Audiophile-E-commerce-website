@@ -30,7 +30,7 @@ export const getStaticProps = async context => {
 }
 
 export const getStaticPaths = async () => {
-    const paths = [{ params: { category: 'headphones', productId: '55' } }];
+    const paths = data.map(({ category, productId }) => ({ params: { category, productId } }));
     return {
         paths,
         fallback: 'blocking'
