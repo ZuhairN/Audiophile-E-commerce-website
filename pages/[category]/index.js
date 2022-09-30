@@ -1,6 +1,5 @@
 import Head from "next/head";
-import Title from "components/categories/Title";
-import Section from 'components/categories/Section';
+import Department from "components/categories/Department";
 import MobNavList from "components/shared/MobNavList";
 import Gear from "components/shared/Gear";
 import data from 'data.json';
@@ -13,8 +12,7 @@ export default function Category({ categData }) {
                 <title>{`Audiophile-${title}`}</title> {/*Warning: A title element received an array with more than 1 element as children => sol: Template Literal*/}
             </Head>
             <main>
-                <Title title={title} />
-                <Section category={categData} />
+                <Department title={title} category={categData} />
                 <MobNavList />
                 <Gear />
             </main>

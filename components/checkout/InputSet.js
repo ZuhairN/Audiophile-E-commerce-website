@@ -26,11 +26,11 @@ export default function InputSet({ id, type = 'text', label, placeholder, name, 
         <>
           <div className='InputSet__error'>{input.errorText}</div>
           <label className='InputSet__label' htmlFor={id}>{label}</label>
-          <input className='InputSet__input' id={id} type={type} placeholder={placeholder} value={input.value} pattern={pattern} maxLength={maxLength} onChange={handleChange} onBlur={handleBlur} required />
+          <input className='InputSet__input' id={id} type={type} placeholder={placeholder} value={input.value} pattern={pattern} maxLength={maxLength} onChange={handleChange} onBlur={handleBlur} aria-label={label} required />
         </>
       ) : (
         <>
-          <input className='sr-only' id={id} type={type} name={name} value={value} placeholder={placeholder} defaultChecked={checked} onClick={onClick} />
+          <input className='sr-only' id={id} type={type} name={name} value={value} placeholder={placeholder} defaultChecked={checked} onClick={onClick} aria-label={`${label} method`} />
           <label className='InputSet--radio__label' htmlFor={id}>
             <div><span className='InputSet--radio__label__btn'></span></div>
             <span>{label}</span>

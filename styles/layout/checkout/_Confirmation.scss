@@ -66,10 +66,16 @@
     }
 
     &__btn {
-        color: $clr-txt;
-        padding-block: 1rem;
+        @include flex();
         font-size: 1.4rem;
         margin-left: 2.2rem;
         border-top: 1px solid $clr-gray;
+        padding-block: 1rem;
+
+        >button {
+            flex: 1;
+            color: $clr-txt;
+        }
+
     }
 }

@@ -13,8 +13,8 @@ export default function Payment({ isCash, setIsCash }) {
             <div className='Payment__control'>
                 <span className='Payment__label'>Payment Method</span>
                 <div className='Payment__input'>
-                    <InputSet id='e-Money-payment' type='radio' label='e-Money' name='Payment Method (e-Money/cash)' value='e-Money' onClick={eMoneyMethod} checked />
-                    <InputSet id='cash-payment' type='radio' label='Cash on Delivery' name='Payment Method (e-Money/cash)' value='cash' onClick={cashMethod} />
+                    <InputSet id='e-Money-payment' type='radio' label='e-Money' name='PayMethod' value='e-Money' onClick={eMoneyMethod} checked />
+                    <InputSet id='cash-payment' type='radio' label='Cash on Delivery' name='PayMethod' value='cash' onClick={cashMethod} />
                 </div>
             </div>
             {!isCash ?

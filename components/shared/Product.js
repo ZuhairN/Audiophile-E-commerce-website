@@ -8,16 +8,15 @@ import reducer from "logic/qty.reducer";
 
 export default function Product({ productId, category, categoryImage, image, name, description, isNew, price, shortName, isControlled }) {
     const cartDispatch = useContext(DispatchContext);
-    const [counter, dispatch] = useReducer(reducer, { count: 1 });
+    const [counter, counterDispatch] = useReducer(reducer, { count: 1 });
     const { asPath } = useRouter();
-    const sub = (e) => { dispatch({ type: 'decrement', amount: 1 }); e.target.blur() }
-    const add = (e) => { dispatch({ type: 'increment', amount: 1 }); e.target.blur() }
-    const addToCart = (e) => {
+    const sub = () => counterDispatch({ type: 'decrement', amount: 1 });
+    const add = () => counterDispatch({ type: 'increment', amount: 1 });
+    const addToCart = () => {
         cartDispatch({ type: 'add', id: productId, name: shortName, qty: counter.count, price });
-        dispatch({ type: 'reset' })
-        e.target.blur();
+        counterDispatch({ type: 'reset' })
     }
-    useEffect(() => dispatch({ type: 'reset' }), [asPath]);
+    useEffect(() => counterDispatch({ type: 'reset' }), [asPath]);
 
 
     return (
@@ -37,11 +36,11 @@ export default function Product({ productId, category, categoryImage, image, nam
                     <> <span className='heading--4'>$ {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
                         <div className='Product__btns'>
                             <div className='Product__count'>
-                                <button type='button' onClick={sub}><span>-</span></button>
+                                <button type='button' onClick={sub} onMouseUp={e => e.target.blur()}>-</button>
                                 <span>{counter.count}</span>
-                                <button type='button' onClick={add}><span>+</span></button>
+                                <button type='button' onClick={add} onMouseUp={e => e.target.blur()}>+</button>
                             </div>
-                            <button className='Btn--orange' onClick={addToCart}>ADD TO CART</button>
+                            <button type='button' className='Btn--orange' onClick={addToCart} onMouseUp={e => e.target.blur()}>ADD TO CART</button>
                         </div>
                     </>}
             </div>

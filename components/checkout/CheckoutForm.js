@@ -1,13 +1,11 @@
 import Payment from './Payment';
 import InputSet from './InputSet';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import CartSummary from 'components/cart/CartSummary';
-import { CartContext } from 'logic/cart.context';
 import useToggle from 'logic/useToggle';
 import Confirmation from './Confirmation';
 
 export default function CheckoutForm() {
-    const cart = useContext(CartContext);
     const [isSubmitted, toggleIsSubmitted] = useToggle(false);
     const [isCash, setIsCash] = useState(false);
     const handleSubmit = (e) => {
@@ -25,8 +23,8 @@ export default function CheckoutForm() {
         <form className='CheckoutForm' onSubmit={handleSubmit} noValidate>
             <div className='CheckoutForm__container'>
                 <h1 className='heading--2'>CHECKOUT</h1>
-                <h2 className='sr-only'>CHECKOUT FORM</h2>
                 <fieldset className='CheckoutForm__billing'>
+                    <h2 className='sr-only'>CHECKOUT FORM</h2>
                     <legend className='CheckoutForm__subtitle'><h3>BILLING DETAILS</h3></legend>
                     <InputSet id='name' label='Name' placeholder='Alexei Ward' validate='name' />
                     <InputSet id='email' type='email' label='Email Address' placeholder='alexei@mail.com' validate='email' pattern='^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$' />

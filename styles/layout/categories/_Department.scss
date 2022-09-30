@@ -1,0 +1,24 @@
+@use 'styles/utils' as *;
+
+.Department {
+    @include flex($direct: column, $align: stretch, $gap: 12rem);
+
+    &__title {
+        background-color: $clr-blacky;
+        text-align: center;
+        padding-block: 9.2rem;
+
+        @include breakpoint(mobile) {
+            padding-block: 3.2rem;
+        }
+    }
+
+    &__products {
+        @extend %container;
+        @include flex($direct: column, $gap: 12rem);
+
+        @include breakpoint(desktop) {
+            margin-bottom: 6rem;
+        }
+    }
+}

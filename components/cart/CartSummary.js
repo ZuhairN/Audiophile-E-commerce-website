@@ -24,7 +24,7 @@ export default function CartSummary({ isControlled, collapse, isCash }) {
                 (<>
                     <div className='CartSummary__title'>
                         <h2 className='heading--4'>{isControlled ? <>CART({sum.totalQty}<span className="sr-only"> item(s) in</span>)</> : <><span className='sr-only'>CART </span>SUMMARY</>}</h2>
-                        {isControlled ? <button onClick={reset}>Remove all</button> : null}
+                        {isControlled ? <button type='button' onClick={reset}>Remove all</button> : null}
                     </div>
                     {cart.map(item => <CartItem key={item.id} {...item} isControlled={isControlled} />)}
                     <div className='CartSummary__totalPrice'>
@@ -52,7 +52,7 @@ export default function CartSummary({ isControlled, collapse, isCash }) {
                         {isControlled ?
                             <Btn cls='orange' href='/checkout' text='CHECKOUT' />
                             :
-                            <button type='submit' className='Btn--orange'>{isCash ? 'CONTINUE' : 'CONTINUE & PAY'}</button>
+                            <button type='submit' className='Btn--orange' >{isCash ? 'CONTINUE' : 'CONTINUE & PAY'}</button>
                         }
                     </div>
                 </>)

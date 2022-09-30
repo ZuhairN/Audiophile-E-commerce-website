@@ -71,10 +71,6 @@ button {
     }
 }
 
-* {
-    outline: none;
-}
-
 *:focus {
     outline: 2px dashed $clr-orange;
     outline-offset: 5px;
