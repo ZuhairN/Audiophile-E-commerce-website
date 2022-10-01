@@ -22,9 +22,9 @@ export default function Product({ productId, category, categoryImage, image, nam
     return (
         <div className='Product'>
             <picture className='Product__img'>
-                <source media='(min-width: 53.5em)' srcSet={!isControlled ? categoryImage.desktop : image.desktop} />
-                <source media={!isControlled ? '(min-width: 33em)' : '(min-width: 37em)'} srcSet={!isControlled ? categoryImage.tablet : image.tablet} />
-                <img src={!isControlled ? categoryImage.mobile : image.mobile} alt={name} />
+                <source media='(min-width: 53.5em)' srcSet={`/Audiophile-E-commerce-website${!isControlled ? categoryImage.desktop : image.desktop}`} />
+                <source media={!isControlled ? '(min-width: 33em)' : '(min-width: 37em)'} srcSet={`/Audiophile-E-commerce-website${!isControlled ? categoryImage.tablet : image.tablet}`} />
+                <img src={`/Audiophile-E-commerce-website${!isControlled ? categoryImage.mobile : image.mobile}`} alt={name} />
             </picture>
             <div className='Product__content'>
                 {isControlled ?
@@ -32,15 +32,15 @@ export default function Product({ productId, category, categoryImage, image, nam
                     <h2 className='heading--2'>{isNew ? <span className='heading--span'>NEW PRODUCT</span> : null} {name.toUpperCase()}</h2>}
                 <p className='para--dark'>{description}</p>
 
-                {!isControlled ? <Btn cls='orange' href={`${category}/${productId}`} text='SEE PRODUCT' /> :
+                {!isControlled ? <Btn cls='orange' href={`${category}/${productId}`} text='SEE PRODUCT' label={name} /> :
                     <> <span className='heading--4'>$ {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
                         <div className='Product__btns'>
                             <div className='Product__count'>
-                                <button type='button' onClick={sub} onMouseUp={e => e.target.blur()}>-</button>
+                                <button type='button' onClick={sub} onMouseUp={e => e.target.blur()} aria-label='Decrement qty by 1'>-</button>
                                 <span>{counter.count}</span>
-                                <button type='button' onClick={add} onMouseUp={e => e.target.blur()}>+</button>
+                                <button type='button' onClick={add} onMouseUp={e => e.target.blur()} aria-label='Increment qty by 1'>+</button>
                             </div>
-                            <button type='button' className='Btn--orange' onClick={addToCart} onMouseUp={e => e.target.blur()}>ADD TO CART</button>
+                            <button type='button' className='Btn--orange' onClick={addToCart} onMouseUp={e => e.target.blur()} aria-label={`Add (${name}) to Cart`}>ADD TO CART</button>
                         </div>
                     </>}
             </div>

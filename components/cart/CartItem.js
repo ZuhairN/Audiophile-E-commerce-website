@@ -10,7 +10,7 @@ export default function CartItem({ id, name, qty, price, isControlled }) {
 
     return (
         <div className='CartItem'>
-            <Image src={`/images/cart/image-${id}.jpg`} alt={name} width='64px' height='64px' />
+            <Image src={`/Audiophile-E-commerce-website/images/cart/image-${id}.jpg`} alt={name} width='64px' height='64px' />
             <div className='CartItem__info'>
                 <span>{name}</span>
                 <span className='CartItem__price'>$ {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>

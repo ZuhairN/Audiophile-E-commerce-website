@@ -34,6 +34,21 @@
     }
 }
 
+@mixin imgContainer ($clr, $h-mobile, $h-tablet, $h-desktop, $b-radius: .8rem) {
+    min-height: $h-mobile;
+    border-radius: $b-radius;
+    background-color: $clr;
+
+
+    @include breakpoint(tablet) {
+        min-height: $h-tablet;
+    }
+
+    @include breakpoint(desktop) {
+        min-height: $h-desktop;
+    }
+}
+
 %container {
     padding-inline: 2.4rem;
 

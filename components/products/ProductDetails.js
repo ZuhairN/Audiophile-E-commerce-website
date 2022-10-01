@@ -6,9 +6,9 @@ import BackBtn from 'components/shared/BackBtn';
 export default function ProductDetails({ data, shortName, features, includedItems, gallery, others }) {
     const responsiveImg = (img, alt) => (
         <picture >
-            <source media='(min-width: 53.5em)' srcSet={img.desktop} />
-            <source media='(min-width: 33em)' srcSet={img.tablet} />
-            <img src={img.mobile} alt={alt} />
+            <source media='(min-width: 53.5em)' srcSet={`/Audiophile-E-commerce-website${img.desktop}`} />
+            <source media='(min-width: 33em)' srcSet={`/Audiophile-E-commerce-website${img.tablet}`} />
+            <img src={`/Audiophile-E-commerce-website${img.mobile}`} alt={alt} />
         </picture>
     )
 
@@ -39,10 +39,10 @@ export default function ProductDetails({ data, shortName, features, includedItem
                 <h2 className='heading--2'>YOU MAY ALSO LIKE</h2>
                 <div className='ProductDetails__cards'>
                     {others.map(product => (
-                        <div key={uuid()}>
+                        <div key={uuid()} className='ProductDetails__card'>
                             {responsiveImg(product.image, product.name)}
                             <h3 className='heading--3'>{product.name.toUpperCase()}</h3>
-                            <Btn cls='orange' href={`/${product.productId}`} text='SEE PRODUCT' />
+                            <Btn cls='orange' href={`/${product.productId}`} text='SEE PRODUCT' label={product.name} />
                         </div>
                     ))}
                 </div>

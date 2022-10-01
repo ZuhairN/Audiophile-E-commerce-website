@@ -1,7 +1,7 @@
 @use 'styles/utils' as *;
 
 .Product {
-    @include flex($direct: column, $gap: 3.2rem);
+    @include flex($direct: column, $align: stretch, $gap: 3.2rem);
 
     @include breakpoint(desktop) {
         flex-direction: row;
@@ -13,6 +13,7 @@
     }
 
     &__img {
+        @include imgContainer($clr: $clr-l-gray, $h-mobile: 95vw, $h-tablet: 45vw, $h-desktop: min(45vw, 50rem));
         flex: 1;
     }
 
@@ -54,9 +55,12 @@
         }
 
         &__img {
+            @include imgContainer($clr: $clr-l-gray, $h-mobile: 85vw, $h-tablet: 45vw, $h-desktop: min(40vw, 50rem));
+            align-self: center;
+
             @include breakpoint(tablet) {
                 min-width: 20rem;
-                flex: 1 30%;
+                flex: 1 25%;
             }
         }
 

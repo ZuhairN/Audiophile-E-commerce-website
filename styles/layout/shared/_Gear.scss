@@ -15,7 +15,7 @@
     }
 
     &__img {
-        overflow: hidden;
+        @include imgContainer($clr: $clr-gray, $h-mobile: 80vw, $h-tablet: 35vw, $h-desktop: min(45vw, 55rem));
     }
 
     &__content {

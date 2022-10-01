@@ -15,7 +15,7 @@ export default function MobNavList() {
                 <li key={uuid()} className='MobNavList__card'>
                     <div className='MobNavList__img'><Image src={card.src} alt={card.alt} /></div>
                     <span>{card.alt.toUpperCase()}</span>
-                    <Link href={`/${card.alt}`}><a>SHOP <Image src={arrow} alt='arrow' aria-hidden='true' /></a></Link>
+                    <Link href={`/${card.alt}`}><a aria-label={`Shop from the ${card.alt} department`} >SHOP <Image src={arrow} alt='arrow' /></a></Link>
                 </li>
             ))}
         </ul>

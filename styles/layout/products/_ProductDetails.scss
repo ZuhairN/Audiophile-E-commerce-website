@@ -61,12 +61,15 @@
         display: grid;
         grid-template-columns: 1fr calc(790fr / 554);
         gap: 2.4rem;
+        width: 100%;
 
         >* {
+            @include imgContainer($clr: $clr-l-gray, $h-mobile: 45vw, $h-tablet: 20vw, $h-desktop: min(20vw, 25rem));
             display: flex;
         }
 
-        :last-child {
+        >:last-child {
+            @include imgContainer($clr: $clr-l-gray, $h-mobile: 100vw, $h-tablet: 45vw, $h-desktop: min(45vw, 55rem));
             grid-column-start: 2;
             grid-row: 1/3;
         }
@@ -88,6 +91,7 @@
 
     &__similarItems {
         @include flex($direct: column, $gap: 6.4rem);
+        width: 100%;
 
         @include breakpoint(mobile) {
             gap: 4rem;
@@ -96,7 +100,8 @@
     }
 
     &__cards {
-        @include flex($gap: 1rem);
+        @include flex($align: stretch, $gap: 1rem);
+        width: 100%;
 
         @include breakpoint(mobile) {
             flex-direction: column;
@@ -106,9 +111,15 @@
         @include breakpoint(desktop) {
             gap: 2.8rem;
         }
+    }
 
-        >* {
-            @include flex($direct: column, $gap: 2.4rem);
+    &__card {
+        @include flex($direct: column, $gap: 2.4rem);
+        flex: 1;
+
+        >:first-child {
+            @include imgContainer($clr: $clr-l-gray, $h-mobile: 25vw, $h-tablet: 35vw, $h-desktop: min(20vw, 30rem));
+            align-self: stretch;
         }
     }
 }

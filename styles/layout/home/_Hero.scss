@@ -1,8 +1,9 @@
 @use 'styles/utils' as *;
 
 .Hero {
+    @include imgContainer($clr: $clr-blacky, $h-mobile: 150vw, $h-tablet: 90vw, $h-desktop: min(47vw, 70rem), $b-radius: 0);
     position: relative;
-    background-color: $clr-blacky;
+    overflow: hidden;
 
     @include breakpoint(mobile) {
         bottom: 25vw;

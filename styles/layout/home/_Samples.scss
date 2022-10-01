@@ -70,8 +70,8 @@
         position: relative;
 
         &__img {
+            @include imgContainer($clr: $clr-gray, $h-mobile: 85vw, $h-tablet: 40vw, $h-desktop: min(25vw, 30rem));
             display: block;
-            overflow: hidden;
 
             img {
                 width: 100vw;
@@ -103,15 +103,15 @@
         }
 
         &__img {
-            overflow: hidden;
+            @include imgContainer($clr: $clr-l-gray, $h-mobile: 50vw, $h-tablet: 40vw, $h-desktop: min(25vw, 30rem));
         }
 
         &__content {
             @include flex($direct: column, $align: flex-start, $gap: 3.2rem);
             padding-inline: min(8vw, 9rem);
             border-radius: .8rem;
-            background-color: $clr-l-gray;
             text-align: left;
+            background-color: $clr-l-gray;
 
             @include breakpoint(tablet) {
                 padding-inline: 3.2rem 1.6rem;

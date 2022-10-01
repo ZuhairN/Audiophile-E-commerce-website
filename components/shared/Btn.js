@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-export default function Btn({ cls, href, text, handleClick }) {
+export default function Btn({ cls, href, text, label = '', handleClick }) {
     return (
         <Link href={href}>
-            <a className={`Btn--${cls}`} onClick={handleClick}>{text}</a>
+            <a className={`Btn--${cls}`} onClick={handleClick} aria-label={`${text} (${label})`}>{text}</a>
         </Link>
     )
 }

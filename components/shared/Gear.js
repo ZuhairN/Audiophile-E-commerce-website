@@ -2,9 +2,9 @@ export default function Gear() {
     return (
         <div className='Gear'>
             <picture className='Gear__img'>
-                <source media='(min-width: 53.5em)' srcSet='/images/shared/desktop/image-best-gear.jpg' />
-                <source media='(min-width: 33em)' srcSet='/images/shared/tablet/image-best-gear.jpg' />
-                <img src='/images/shared/mobile/image-best-gear.jpg' alt='Best-Gear' />
+                <source media='(min-width: 53.5em)' srcSet='/Audiophile-E-commerce-website/images/shared/desktop/image-best-gear.jpg' />
+                <source media='(min-width: 33em)' srcSet='/Audiophile-E-commerce-website/images/shared/tablet/image-best-gear.jpg' />
+                <img src='/Audiophile-E-commerce-website/images/shared/mobile/image-best-gear.jpg' alt='Best-Gear' />
             </picture>
             <div className='Gear__content'>
                 <h2 className='heading--2'>BRINGING YOU THE <span>BEST</span> AUDIO GEAR</h2>
