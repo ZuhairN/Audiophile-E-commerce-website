@@ -1,0 +1,71 @@
+@use 'styles/utils' as *;
+
+.Product {
+    @include flex($direct: column, $align: stretch, $gap: 3.2rem);
+
+    @include breakpoint(desktop) {
+        flex-direction: row;
+        gap: 10%;
+
+        &:nth-of-type(2n+2) {
+            flex-direction: row-reverse;
+        }
+    }
+
+    &__img {
+        @include imgContainer($h-mobile: 85vw, $h-tablet: 40vw, $h-desktop: min(45vw, 50rem));
+        flex: 1;
+    }
+
+    &__content {
+        flex-basis: 41.5%;
+        @include flex($direct: column, $gap: 2.4rem);
+        text-align: center;
+
+        @include breakpoint(desktop) {
+            align-items: flex-start;
+            text-align: left;
+        }
+    }
+
+    &__newLogo {
+        display: block;
+        color: $clr-orange;
+        font-size: 1.4rem;
+    }
+
+    &__btns {
+        @include flex($justify: flex-start, $align: stretch);
+        margin-top: 2rem;
+        font-weight: 700;
+    }
+
+    &__count {
+        @extend %controller;
+
+        button {
+            padding: 0 2rem;
+        }
+    }
+
+    .ProductDetails & {
+        @include breakpoint(tablet) {
+            flex-direction: row;
+        }
+
+        &__img {
+            @include imgContainer($h-mobile: 80vw, $h-tablet: 45vw, $h-desktop: min(40vw, 50rem));
+            align-self: center;
+        }
+
+        &__content {
+            align-items: flex-start;
+            text-align: left;
+            margin-right: auto;
+
+            @include breakpoint(tablet) {
+                flex-basis: 62%;
+            }
+        }
+    }
+}
