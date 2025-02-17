@@ -1,16 +1,16 @@
 import { v4 as uuid } from 'uuid';
-import Btn from "components/shared/Btn";
-import Product from "../shared/Product";
+import Btn from 'components/shared/Btn';
+import Product from '../shared/Product';
 import BackBtn from 'components/shared/BackBtn';
 
 export default function ProductDetails({ data, shortName, features, includedItems, gallery, others }) {
     const responsiveImg = (img, alt) => (
-        <picture >
-            <source media='(min-width: 53.5em)' srcSet={`/Audiophile-E-commerce-website${img.desktop}`} />
-            <source media='(min-width: 33em)' srcSet={`/Audiophile-E-commerce-website${img.tablet}`} />
-            <img src={`/Audiophile-E-commerce-website${img.mobile}`} alt={alt} />
+        <picture>
+            <source media='(min-width: 53.5em)' srcSet={`${img.desktop}`} />
+            <source media='(min-width: 33em)' srcSet={`${img.tablet}`} />
+            <img src={`${img.mobile}`} alt={alt} />
         </picture>
-    )
+    );
 
     return (
         <div className='ProductDetails'>
@@ -19,13 +19,20 @@ export default function ProductDetails({ data, shortName, features, includedItem
             <div className='ProductDetails__content'>
                 <div className='ProductDetails__features'>
                     <h2 className='heading--2'>FEATURES</h2>
-                    {features.map(feature => <p key={uuid()} className='para--dark'>{feature}</p>)}
+                    {features.map(feature => (
+                        <p key={uuid()} className='para--dark'>
+                            {feature}
+                        </p>
+                    ))}
                 </div>
                 <div className='ProductDetails__inBox'>
                     <h2 className='heading--2'>IN THE BOX</h2>
                     <ul className='ProductDetails__inBox__list'>
                         {includedItems.map(item => (
-                            <li key={uuid()} className='para--dark'><span>{item.quantity}x</span>{item.item.replace(/^(.)|\s+(.)/g, c => c.toUpperCase())}</li>
+                            <li key={uuid()} className='para--dark'>
+                                <span>{item.quantity}x</span>
+                                {item.item.replace(/^(.)|\s+(.)/g, c => c.toUpperCase())}
+                            </li>
                         ))}
                     </ul>
                 </div>
@@ -48,5 +55,5 @@ export default function ProductDetails({ data, shortName, features, includedItem
                 </div>
             </div>
         </div>
-    )
+    );
 }

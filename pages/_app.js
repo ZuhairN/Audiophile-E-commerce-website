@@ -6,21 +6,21 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
-  const { asPath } = useRouter();
-  const canonicalUrl = ('https://zuhairn.github.io/Audiophile-E-commerce-website' + (asPath === '/' ? '' : asPath)).split('?')[0];
+    const { asPath } = useRouter();
+    const canonicalUrl = ('https://zuhairn.github.io' + (asPath === '/' ? '' : asPath)).split('?')[0];
 
-  return (
-    <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <meta name='theme-color' content='#ffffff' />
-      </Head>
-      <DefaultSeo {...nextSEO} canonical={canonicalUrl} />
-      <Boilerplate>
-        <Component {...pageProps} />
-      </Boilerplate>
-    </>
-  )
+    return (
+        <>
+            <Head>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0, viewport-fit=cover' />
+                <meta name='theme-color' content='#ffffff' />
+            </Head>
+            <DefaultSeo {...nextSEO} canonical={canonicalUrl} />
+            <Boilerplate>
+                <Component {...pageProps} />
+            </Boilerplate>
+        </>
+    );
 }
 
-export default MyApp
+export default MyApp;
