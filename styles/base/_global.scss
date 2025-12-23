@@ -11,6 +11,7 @@ body {
 
 #__next {
     min-height: 100vh;
+
     @include flex($direct: column, $justify: flex-start, $align: stretch, $gap: 0)
 }
 
